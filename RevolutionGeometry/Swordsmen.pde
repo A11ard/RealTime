@@ -1,20 +1,21 @@
 class Swordsmen{
-  int life;
+  public int life;
   int speed;
   int attack;
-  int x;
+  public int x;
   int y;
   boolean team; //true = player team, false = computer
 
   public Swordsmen(boolean team){
     life = 100;
-    speed = 10;
     attack = 10;
     if (team){
       x = 10;
+      speed = 10;
     }
     else {
       x = 390;
+      speed = -10;
     }
     y = 200;
     this.team =team;
@@ -25,12 +26,7 @@ class Swordsmen{
   }
 
   void move(){
-    if (team){
-      x += speed;
-    }
-    else {
-      x -= speed;
-    }
+    x += speed;
   }
 
   /**
