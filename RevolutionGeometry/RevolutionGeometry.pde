@@ -4,6 +4,10 @@ ArrayList<Swordsmen> computerTeam;
 void setup(){
   playerTeam = new ArrayList<Swordsmen>();
   computerTeam = new ArrayList<Swordsmen>();
+  for(int counter = 0; counter < 25; i ++){
+    playerTeam.add(new Swordsmen(true));
+    computerTeam.add(new Swordsmen(false));
+  }
   size(400,400);
 }
 
@@ -45,7 +49,7 @@ void draw(){
   //time to die
   for(int counter = 0; counter < computerTeam.size();){
     if (computerTeam.get(counter).life <= 0){
-      computerTeam.remove(counter)
+      computerTeam.remove(counter);
     }
     else {
       counter += 1;
@@ -53,7 +57,7 @@ void draw(){
   }
   for(int counter = 0; counter < playerTeam.size();){
     if (playerTeam.get(counter).life <= 0){
-      playerTeam.remove(counter)
+      playerTeam.remove(counter);
     }
     else {
       counter += 1;
