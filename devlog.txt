@@ -1,6 +1,9 @@
-2017-05-19 09:30AM Yuanchu Liu
+2017-05-19 09:30 Yuanchu Liu
 Initiated MVP and implemented a basic Swordsmen class.
 Swordsmen capable of attack, move, and draw a visual representation of itself.
 
-2017-05-19 12:10AM Yuanchu Liu
+2017-05-19 12:10 Yuanchu Liu
 Added actual interactions between swordsmen & implemented necessary functionalities in setup() and draw().
+
+2017-05-20 16:30 Yuanchu Liu
+Resolved small bugs and starts testing of MVP. Will start on taking user inputs for units.
