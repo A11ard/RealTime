@@ -1,38 +1,33 @@
-class Swordsmen{
-  public int life;
-  int speed;
-  int attack;
-  public int x;
-  int y;
-  boolean team; //true = player team, false = computer
-
-  public Swordsmen(boolean team){
-    life = 100;
-    attack = 10;
-    if (team){
-      x = 10;
-      speed = 10;
+class Swordsmen extends Unit{
+  public Swordsmen(boolean _team){
+    super(100,1.0,10,2,5,_team, (int)random(75));
+    if(_team == true){
+      position = new PVector(50, height/2 + y);
     }
-    else {
-      x = 390;
-      speed = -10;
+    else{
+      position = new PVector(width - 50, height/2 + y);
     }
-    y = 200;
-    this.team =team;
+    
   }
 
-  void attack(Swordsmen target){
-    target.life -= attack;
+  void attack(Unit target){
+    target.life -= damage;
+    
   }
 
   void move(){
-    x += speed;
+    if (team){
+      position.x += speed;
+    }
+    else {
+      position.x -= speed;
+    }
   }
 
   /**
   draws a swordsman as a 10 by 10 square centered at its (x,y) coordinates.
   */
   void drawUnit(){
-    quad(x+5,y+5,x+5,y-5,x-5,y+5,x-5,y-5);
+    rect(position.x+5,position.y,10,10);
   }
 }
