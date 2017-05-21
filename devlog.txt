@@ -1,9 +1,20 @@
-2017-05-19 09:30 Yuanchu Liu
-Initiated MVP and implemented a basic Swordsmen class.
+2017-05-18 Jeffrey Weng
+- Created plan for 20170518 and updated README file
+
+2017-05-19 Yuanchu Liu
+- Initiated MVP and implemented a basic Swordsmen class.
 Swordsmen capable of attack, move, and draw a visual representation of itself.
 
-2017-05-19 12:10 Yuanchu Liu
-Added actual interactions between swordsmen & implemented necessary functionalities in setup() and draw().
+- Added actual interactions between swordsmen & implemented necessary functionalities in setup() and draw().
 
-2017-05-20 16:30 Yuanchu Liu
-Resolved small bugs and starts testing of MVP. Will start on taking user inputs for units.
+2017-05-20 Yuanchu Liu
+- Resolved small bugs and starts testing of MVP. Will start on taking user inputs for units.
+
+2017-05-21 Jeffrey Weng
+- Added Unit abstract class
+- changed Leo's swordsmen class, removed attack()(wasn't working as intended)
+- added depth for unit spawn
+- Fixed RevolutionGeometry driver class bugs
+
+
+
