@@ -19,6 +19,7 @@ Swordsmen capable of attack, move, and draw a visual representation of itself.
 2017-05-22 Allard Peng 
 - Added Stack.pde, the underlying data structure for the graveyard in the game 
 - Updated driver class to initialize a graveyard for player and computer
+- Created plan for 20170518, filled it in with changes that were agreed upon in class today. 
 
 
 
