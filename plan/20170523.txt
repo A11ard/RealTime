@@ -10,7 +10,15 @@ THIS IS THE LATEST ORDER OF BUSINESS:
 
 DISCUSSED IMPLEMENTATIONS/UPDATES:
 
-- The means of targeting is no longer done by a Priority Queue. A linear search through the ArrayList of enemy units (a search for the unit with the shortest distance) shall be used instead. This is more efficient than putting all units in a PQ and then returning the first one. 
-- It has been determined that the Wizard will use a lightning strike. The closest 4 enemy units will be struck. This will be done using a PQ. 
-- The field will be viewed not from the side, as in an elevation, nor from top-down, as in a bird's eye view. Rather, it'll be viewed from a 45 degree angle with the plane of the field.
-- The measure for determining proximity will be through the distance formula, sqrt(x^2 + y^2), with x and y being the x and y coords on the cartesian plane of Processing's interface. 
+- The means of targeting is no longer done by a Priority Queue. A linear search through the ArrayList of enemy units (a search for
+the unit with the shortest distance) shall be used instead. This is more efficient than putting all units in a PQ and then
+returning the first one. 
+
+- It has been determined that the Wizard will use a lightning strike. The closest 4 enemy units will be struck. This will be done
+using a PQ. 
+
+- The field will be viewed not from the side, as in an elevation, nor from top-down, as in a bird's eye view. Rather, it'll be
+viewed from a 45 degree angle with the plane of the field.
+
+- The measure for determining proximity will be through the distance formula, sqrt(x^2 + y^2), with x and y being the x and y
+coords on the cartesian plane of Processing's interface. 
