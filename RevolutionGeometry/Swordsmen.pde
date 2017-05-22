@@ -10,6 +10,8 @@ class Swordsmen extends Unit{
     
   }
 
+ 
+
   void attack(Unit target){
     target.life -= damage;
     
@@ -28,6 +30,7 @@ class Swordsmen extends Unit{
   draws a swordsman as a 10 by 10 square centered at its (x,y) coordinates.
   */
   void drawUnit(){
+    stroke(255);
     rect(position.x+5,position.y,10,10);
   }
 }
