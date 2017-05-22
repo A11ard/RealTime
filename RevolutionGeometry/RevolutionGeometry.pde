@@ -1,28 +1,34 @@
 ArrayList<Unit> playerTeam;
 ArrayList<Unit> computerTeam;
+Menu menu;
 
 void setup(){
   playerTeam = new ArrayList<Unit>();
   computerTeam = new ArrayList<Unit>();
+  menu = new Menu(); 
   
   for(int counter = 0; counter < 15; counter++){ 
     playerTeam.add(new Swordsmen(true));
     computerTeam.add(new Swordsmen(false));
   }
-  size(800,400);
+  size(1000,500);
 }
 
 void draw(){
-  background(1);
-  fill(0,0,255);
+  background(255);
+  fill(255);
+  menu.loadMenu();
   for(Unit unit : playerTeam){
+     fill(0,0,255);
      unit.drawUnit();
+     unit.updateHealth();
      unit.move();
      
   }
-  fill(255,0,0);
   for(Unit unit : computerTeam){
+    fill(255,0,0);
     unit.drawUnit();
+    unit.updateHealth();
     unit.move();
   }
 

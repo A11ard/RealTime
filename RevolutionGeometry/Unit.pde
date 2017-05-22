@@ -12,6 +12,7 @@ protected int y;
 abstract void attack(Unit unit);
 abstract void drawUnit();
 abstract void move();
+abstract void updateHealth();
 
 public Unit(int _life, float _speed, int _damage, int _trainingTime, int _cost, boolean _team, int _y){
    life = _life;
