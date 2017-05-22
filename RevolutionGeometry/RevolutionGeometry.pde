@@ -1,14 +1,14 @@
 ArrayList<Unit> playerTeam;
 ArrayList<Unit> computerTeam;
-Stack playerGraveyard; 
-Stack computerGraveyard;
+Graveyard playerGraveyard; 
+Graveyard computerGraveyard;
 Menu menu;
 
 void setup(){
   playerTeam = new ArrayList<Unit>();
   computerTeam = new ArrayList<Unit>();
-  playerGraveyard = new Stack(); 
-  computerGraveyard = new Stack();  
+  playerGraveyard = new Graveyard(); 
+  computerGraveyard = new Graveyard();  
   menu = new Menu(); 
   
   for(int counter = 0; counter < 15; counter++){ 

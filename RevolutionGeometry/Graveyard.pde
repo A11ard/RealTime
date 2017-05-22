@@ -1,11 +1,11 @@
-class Stack{
+class Graveyard{
     //this will be the underlying structure for the graveyard
     //standard static implementation: 
     //add to front and removes from front (last in first out) 
     
     ArrayList<Unit> _stack; 
     
-    public Stack(){
+    public Graveyard(){
       _stack = new ArrayList<Unit> (); 
     }
     
