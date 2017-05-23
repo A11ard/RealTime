@@ -21,5 +21,7 @@ Swordsmen capable of attack, move, and draw a visual representation of itself.
 - Updated driver class to initialize a graveyard for player and computer
 - Created plan for 20170518, filled it in with changes that were agreed upon in class today. 
 
+2017-05-22 Yuanchu Liu
+- Implemented targeting. Select closest as target. Attack if in range, else move toward target.
 
 
