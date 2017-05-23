@@ -38,17 +38,19 @@ void draw(){
   
   
   for(Unit unit : playerTeam){
+     Unit target = unit.selectTarget(computerTeam);
      fill(0,0,255);
      unit.drawUnit();
      unit.updateHealth();
-     unit.move();
+     unit.move(target);
      
   }
   for(Unit unit : computerTeam){
+    Unit target = unit.selectTarget(playerTeam);
     fill(255,0,0);
     unit.drawUnit();
     unit.updateHealth();
-    unit.move();
+    unit.move(target);
   }
 
 }
