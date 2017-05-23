@@ -36,6 +36,28 @@ int getCost(){
   return cost;
 }
 
+/***************************************
+Select the closest enemy unit of a unit as target.
+
+Args:
+  self (Unit): Unit to make targeting decisions.
+  enemyTeam (ArrayList<Unit>): Collection of enemy team units
+
+Returns:
+  Unit: Enemy unit closest to self. 
+****************************************/
+Unit selectTarget(Unit self, ArrayList<Unit> enemyTeam){
+  Unit target = null;
+  float minDist = 9999;
+  for(Unit enemyUnit : enemyTeam){
+    if(self.position.dist(enemyUnit.position) < minDist){
+      minDist = self.position.dist(enemyUnit.position);
+      target = enemyUnit;
+    }
+  }
+  return target;
+}
+
 
 
 }

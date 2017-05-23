@@ -11,43 +11,28 @@ class Swordsmen extends Unit{
     
   }
 
-
-  /***************************************
-  Select the closest enemy unit of a unit as target.
-  
-  Args:
-    self (Unit): Unit to make targeting decisions.
-    enemyTeam (ArrayList<Unit>): Collection of enemy team units
- 
-  Returns:
-    Unit: Enemy unit closest to self. 
-  ****************************************/
-  Unit selectTarget(Unit self, ArrayList<Unit> enemyTeam){
-    Unit target = null;
-    float minDist = 9999;
-    for(Unit enemyUnit : enemyTeam){
-      if(self.position.dist(enemyUnit.position) < minDist){
-        minDist = self.position.dist(enemyUnit.position);
-        target = enemyUnit;
-      }
-    }
-    return target;
+  void takeTurn(){
+     
   }
+
   
   void attack(Unit target){
     target.life -= damage;
-    
   }
 
-  void move(){
-    if (team){
-      position.x += speed;
+  void move(Unit target){
+    if(target == null){ //no target, then move foward
+      if (team){
+        position.x += speed;
+      }
+      else {
+        position.x -= speed;
+      }
     }
-    else {
-      position.x -= speed;
+    else{//there is a target, move towards it.
+      
     }
   }
-  
   
   /**
   draws a swordsman as a 10 by 10 square centered at its (x,y) coordinates.
