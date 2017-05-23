@@ -32,6 +32,7 @@ Swordsmen capable of attack, move, and draw a visual representation of itself.
 - Buttons are used for spawning(spawning one character at a time)
 - Added currency(1 sec, 1 mana)
 
-
-
-
+2017-05-23 Yuanchu Liu
+- Put target selection to use.
+  -Units will now attack closest target if said target is in range.
+  -Else the unit will move towards that target.
