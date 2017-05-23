@@ -3,6 +3,9 @@ ArrayList<Unit> computerTeam;
 Graveyard playerGraveyard; 
 Graveyard computerGraveyard;
 Menu menu;
+boolean doOnce;
+
+
 
 void setup(){
   playerTeam = new ArrayList<Unit>();
@@ -11,10 +14,6 @@ void setup(){
   computerGraveyard = new Graveyard();  
   menu = new Menu(); 
   
-  for(int counter = 0; counter < 15; counter++){ 
-    playerTeam.add(new Swordsmen(true));
-    computerTeam.add(new Swordsmen(false));
-  }
   size(1000,500);
 }
 
@@ -22,6 +21,22 @@ void draw(){
   background(255);
   fill(255);
   menu.loadMenu();
+  //Spawning Troops  
+  if(menu.buttonPressed() == 0 && doOnce == false){
+    playerTeam.add(new Swordsmen(true));
+    doOnce = true;
+  }
+  if(menu.buttonPressed() == 1 && doOnce == false){
+    playerTeam.add(new Swordsmen(true));
+    doOnce = true;
+  }
+  
+  if(menu.buttonPressed() == 2 && doOnce == false){
+    computerTeam.add(new Swordsmen(false));
+    doOnce = true;
+  }
+  
+  
   for(Unit unit : playerTeam){
      fill(0,0,255);
      unit.drawUnit();
@@ -36,4 +51,8 @@ void draw(){
     unit.move();
   }
 
+}
+
+void mouseReleased(){
+  doOnce = false;
 }

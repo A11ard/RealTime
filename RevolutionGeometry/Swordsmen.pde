@@ -1,7 +1,9 @@
 class Swordsmen extends Unit{
-  public Swordsmen(boolean _team){
+  
+  Swordsmen(boolean _team){
     //100 is the menuH, height/2 is the maximum height the units will spawn, 20 is so it won't touch menu
-    super(100,1.0,10,2,5,_team, (int)random(height - 100 - (height/2) - 20));
+    //super(int _life, float _speed, int _damage, int _trainingTime, int _cost, boolean _team, int _y)
+    super(100,1.0,10,2,5,_team, (int)random(height - 80 - (height/2) - 20));
     if(_team == true){
       position = new PVector(50, height/2 + y);
     }
@@ -11,16 +13,23 @@ class Swordsmen extends Unit{
     
   }
 
-  void takeTurn(){
-     
-  }
-
-  
   void attack(Unit target){
     target.life -= damage;
+    
   }
 
-  void move(Unit target){
+  void move(){
+    if (team){
+      position.x += speed;
+    }
+    else {
+      position.x -= speed;
+    }
+  }
+  
+  //Leo, your move isn't finished
+  /*
+    void move(Unit target){
     if(target == null){ //no target, then move foward
       if (team){
         position.x += speed;
@@ -33,6 +42,12 @@ class Swordsmen extends Unit{
       
     }
   }
+  */
+  
+  int identifier(){
+    return 0;
+  }
+  
   
   /**
   draws a swordsman as a 10 by 10 square centered at its (x,y) coordinates.
