@@ -24,4 +24,14 @@ Swordsmen capable of attack, move, and draw a visual representation of itself.
 2017-05-22 Yuanchu Liu
 - Implemented targeting. Select closest as target. Attack if in range, else move toward target.
 
+2017-05-22 Jeffrey Weng
+- Added Health Bars that are dynamic! Fills in red based on health
+- Created Menu class
+- Implemented Menu for area designation(boxes and such)
+- Created Button class
+- Buttons are used for spawning(spawning one character at a time)
+- Added currency(1 sec, 1 mana)
+
+
+
 
