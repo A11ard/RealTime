@@ -9,9 +9,7 @@ protected int damage;
 protected boolean team;
 protected int y;
 
-abstract void attack(Unit unit);
 abstract void drawUnit();
-abstract void move();
 abstract void updateHealth();
 abstract int identifier();
 
@@ -37,29 +35,62 @@ int getCost(){
   return cost;
 }
 
+void attack(Unit target){
+  
+}
+
 /***************************************
- Select the closest enemy unit of a unit as target.
+ Select the closest enemy unit of the caller as target.
  
  Args:
-  self (Unit): Unit to make targeting decisions.
    enemyTeam (ArrayList<Unit>): Collection of enemy team units
  
  Returns:
-   Unit: Enemy unit closest to self. 
+   Unit: Enemy unit closest to this instance of Unit. 
  ****************************************/
- /*
- Unit selectTarget(Unit self, ArrayList<Unit> enemyTeam){
+ Unit selectTarget( ArrayList<Unit> enemyTeam){
    Unit target = null;
    float minDist = 9999;
    for(Unit enemyUnit : enemyTeam){
-     if(self.position.dist(enemyUnit.position) < minDist){
-       minDist = self.position.dist(enemyUnit.position);
+     if(this.position.dist(enemyUnit.position) < minDist){
+       minDist = this.position.dist(enemyUnit.position);
       target = enemyUnit;
      }
    }
    return target;
  }
 
-*/
+
+
+/*****************************************
+ Move a unit foward
+ 
+ If there is a valid target, move towards that target.
+ Else, move down the lane, direction dependent on team.
+ Suppresses movement if too close to target to avoid unnecessary motion.
+ 
+ Args:
+   target (Unit): the 
+ *****************************************/
+void move(Unit target){
+  if(target == null){ //no target, then move foward
+    if (team){
+      position.x += speed;
+    }
+    else {
+      position.x -= speed;
+    }
+  }
+  else{//there is a target, move towards it.
+    float distance = position.dist(target.position); //dist from unit to target
+    float deltaX = target.position.x - position.x;   //difference in Xcor
+    float deltaY = target.position.y - position.y;   //difference in Ycor
+    
+    if(distance > speed){
+      position.x += speed * deltaX / distance;
+      position.y += speed * deltaY / distance;
+    }
+  }
+}
 
 }
