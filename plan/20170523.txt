@@ -1,7 +1,7 @@
 
 THIS IS THE LATEST ORDER OF BUSINESS: 
 
-1. Jeffrey: 
+1. Jeffrey: setup menu buttons, spawning of troops, and currency system. *Added health bar.  
 
 2. Leo: 
 
