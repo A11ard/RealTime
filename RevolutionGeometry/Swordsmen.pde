@@ -1,5 +1,6 @@
 class Swordsmen extends Unit{
   int lifeinit;
+  
   Swordsmen(boolean _team){
     //100 is the menuH, height/2 is the maximum height the units will spawn, 20 is so it won't touch menu
     //super(int _life, float _speed, int _damage, int _trainingTime, int _cost, boolean _team, int _y)
@@ -11,6 +12,7 @@ class Swordsmen extends Unit{
       position = new PVector(width - 50, height/2 + y);
     }
     lifeinit = life;
+    attackRange == 10;
   }
 
   void attack(Unit target){

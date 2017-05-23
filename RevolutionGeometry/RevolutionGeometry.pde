@@ -42,7 +42,7 @@ void draw(){
      fill(0,0,255);
      unit.drawUnit();
      unit.updateHealth();
-     unit.move(target);
+     unit.attack(target);
      
   }
   for(Unit unit : computerTeam){
@@ -50,7 +50,7 @@ void draw(){
     fill(255,0,0);
     unit.drawUnit();
     unit.updateHealth();
-    unit.move(target);
+    unit.attack(target);
   }
 
 }
