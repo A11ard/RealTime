@@ -1,6 +1,10 @@
 class Swordsmen extends Unit{
   int lifeinit;
+<<<<<<< HEAD
   static final int COST = 5;
+=======
+  
+>>>>>>> 963cb06ed36a7ce67c483415783482cc83efedcc
   Swordsmen(boolean _team){
     //100 is the menuH, height/2 is the maximum height the units will spawn, 20 is so it won't touch menu
     //super(int _life, float _speed, int _damage, int _trainingTime, int _cost, boolean _team, int _y)
@@ -12,6 +16,16 @@ class Swordsmen extends Unit{
       position = new PVector(width - 50, height/2 + y);
     }
     lifeinit = life;
+<<<<<<< HEAD
+=======
+    attackRange == 10;
+  }
+
+  void attack(Unit target){
+    target.life -= damage;
+    
+  }
+>>>>>>> 963cb06ed36a7ce67c483415783482cc83efedcc
 
   }
 /*

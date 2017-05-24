@@ -8,6 +8,7 @@ protected PVector position;
 protected int damage;
 protected boolean team;
 protected int y;
+protected float attackRange;
 
 abstract void drawUnit();
 abstract void updateHealth();
@@ -36,7 +37,17 @@ int getLife(){
 }
 
 void attack(Unit target){
+<<<<<<< HEAD
  
+=======
+  float distance = position.dist(target.position); //dist from unit to target
+  if (attackRange > distance){
+    target.life -= damage;
+  }
+  else {
+    move(target);
+  }
+>>>>>>> 963cb06ed36a7ce67c483415783482cc83efedcc
 }
 
 /***************************************
@@ -46,15 +57,16 @@ void attack(Unit target){
    enemyTeam (ArrayList<Unit>): Collection of enemy team units
  
  Returns:
-   Unit: Enemy unit closest to this instance of Unit. 
+   Unit: Enemy unit closest to this instance of Unit.
+         Null if no target within range.
  ****************************************/
  Unit selectTarget( ArrayList<Unit> enemyTeam){
    Unit target = null;
-   float minDist = 9999;
+   float minDist = 9999; //sight radius expansion here
    for(Unit enemyUnit : enemyTeam){
      if(this.position.dist(enemyUnit.position) < minDist){
        minDist = this.position.dist(enemyUnit.position);
-      target = enemyUnit;
+       target = enemyUnit;
      }
    }
    return target;
@@ -70,7 +82,7 @@ void attack(Unit target){
  Suppresses movement if too close to target to avoid unnecessary motion.
  
  Args:
-   target (Unit): the 
+   target (Unit): the target location.
  *****************************************/
 void move(Unit target){
   if(target == null){ //no target, then move foward
