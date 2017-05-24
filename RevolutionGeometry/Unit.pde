@@ -37,9 +37,7 @@ int getLife(){
 }
 
 void attack(Unit target){
-<<<<<<< HEAD
- 
-=======
+
   float distance = position.dist(target.position); //dist from unit to target
   if (attackRange > distance){
     target.life -= damage;
@@ -47,7 +45,7 @@ void attack(Unit target){
   else {
     move(target);
   }
->>>>>>> 963cb06ed36a7ce67c483415783482cc83efedcc
+
 }
 
 /***************************************
