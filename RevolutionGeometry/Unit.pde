@@ -51,6 +51,13 @@ void attack(Unit target){
   }
 }
 
+
+void death(ArrayList team, Unit unit){
+  if(unit.getLife() <= 0){
+    team.remove(team.indexOf(unit));
+  }
+}
+
 /***************************************
  Select the closest enemy unit of the caller as target.
  

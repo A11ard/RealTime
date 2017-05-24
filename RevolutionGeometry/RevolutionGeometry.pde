@@ -27,7 +27,7 @@ void draw() {
   if (menu.buttonPressed() == 0 && doOnce == false && menu.getCurrency() >= Swordsmen.COST ) {
     playerTeam.add(new Swordsmen(true));
     //playerQueue.enqueue(new Swordsmen(true));
-    menu.changeCurrency(Swordsmen.COST);
+    //menu.changeCurrency(Swordsmen.COST);
     doOnce = true;
   }
   if (menu.buttonPressed() == 1 && doOnce == false) {
@@ -40,41 +40,25 @@ void draw() {
     doOnce = true;
   }
 
-
-  for (Unit unit : playerTeam) {
+  for(int i = 0; i < playerTeam.size(); i++){
+    Unit unit = playerTeam.get(i);
     Unit target = unit.selectTarget(computerTeam);
     fill(0, 0, 255);
     unit.drawUnit();
     unit.updateHealth();
-
     //unit.move(target);
     unit.attack(target);
+    unit.death(playerTeam, unit);
   }
-  for (Unit unit : computerTeam) {
+  for(int i = 0; i < computerTeam.size(); i++){
+    Unit unit = computerTeam.get(i);
     Unit target = unit.selectTarget(playerTeam);
     fill(255, 0, 0);
     unit.drawUnit();
     unit.updateHealth();
     //unit.move(target);
     unit.attack(target);
-  }
-  if (playerTeam.size() != 0) {
-    for (int i = 0; i < playerTeam.size(); ) {
-      if (playerTeam.get(i).getLife() <= 0) {
-        playerTeam.remove(i);
-      } else {
-        i ++;
-      }
-    }
-  }
-  if (computerTeam.size() != 0) {
-    for (int i = 0; i < computerTeam.size(); ) {
-      if (computerTeam.get(i).getLife() <= 0) {
-        computerTeam.remove(i);
-      } else {
-        i ++;
-      }
-    }
+    unit.death(computerTeam, unit);
   }
 }
 
