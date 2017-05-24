@@ -22,9 +22,11 @@ void draw(){
   fill(255);
   menu.loadMenu();
   //Spawning Troops  
-  if(menu.buttonPressed() == 0 && doOnce == false){
+  if(menu.buttonPressed() == 0 && doOnce == false && menu.getCurrency() > Swordsmen.COST ){
     playerTeam.add(new Swordsmen(true));
+    menu.changeCurrency(Swordsmen.COST);
     doOnce = true;
+    //menu.reduceCurrency(10);
   }
   if(menu.buttonPressed() == 1 && doOnce == false){
     playerTeam.add(new Swordsmen(true));
@@ -43,6 +45,7 @@ void draw(){
      unit.drawUnit();
      unit.updateHealth();
      unit.move(target);
+
      
   }
   for(Unit unit : computerTeam){

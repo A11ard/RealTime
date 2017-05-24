@@ -28,6 +28,7 @@ class Menu{
        item.display();
      }
      //display currency
+     
      currency = millis()/1000;
      noFill();
      rect(width/2 - 70, height - 58,100, 25);
@@ -37,22 +38,22 @@ class Menu{
   
   }
   
+  
   int buttonPressed(){
      for(Button item: buttons){
        if((dist(mouseX, mouseY,item.x_position(),item.y_position()) < item.getRad()) && mousePressed){
-        
-           return item.getIndex();
-         
-            
-        }
-         
-       
+           return item.getIndex();        
+        }      
      } 
      return -1;
   }
   
   int getCurrency(){
     return currency;
+  }
+  
+  void changeCurrency(int value){
+    currency -= value;
   }
   
 }
