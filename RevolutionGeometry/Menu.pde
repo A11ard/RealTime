@@ -3,6 +3,7 @@ class Menu{
   //Buttons
   Button[] buttons = new Button[3];
   int currency;
+  int start; 
   //castle health
   //currency you have
   //deck + utility cards
@@ -28,8 +29,10 @@ class Menu{
        item.display();
      }
      //display currency
-     
-     currency = millis()/1000;
+     if(millis() - start > 1000){
+       currency += 1;
+       start = millis();
+     }
      noFill();
      rect(width/2 - 70, height - 58,100, 25);
      fill(0);
