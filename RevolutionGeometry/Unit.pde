@@ -35,19 +35,22 @@ void changeLife(int value){
 int getLife(){
   return life;
 }
-/*
-void attack(Unit target){
 
-  float distance = position.dist(target.position); //dist from unit to target
-  if (attackRange > distance){
-    target.life -= damage;
+void attack(Unit target){
+  if(target == null){
+    move(null);
   }
   else {
-    move(target);
+    float distance = position.dist(target.position); //dist from unit to target
+    if (attackRange > distance){
+      target.changeLife(damage);
+    }
+    else {
+      move(target);
+    }
   }
-
 }
-*/
+
 /***************************************
  Select the closest enemy unit of the caller as target.
  

@@ -18,14 +18,7 @@ class Swordsmen extends Unit{
   }
 
 
-/*
-void attack(Unit target){
-  if(target == null){
-    
-  }
-  target.changeLife(damage);
-}
-*/
+
   int identifier(){
     return 0;
   }
