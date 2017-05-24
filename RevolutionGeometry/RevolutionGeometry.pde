@@ -1,4 +1,5 @@
 ArrayList<Unit> playerTeam;
+ALQueue<Unit> playerQueue;
 ArrayList<Unit> computerTeam;
 Graveyard playerGraveyard; 
 Graveyard computerGraveyard;
@@ -11,7 +12,8 @@ void setup(){
   playerTeam = new ArrayList<Unit>();
   computerTeam = new ArrayList<Unit>();
   playerGraveyard = new Graveyard(); 
-  computerGraveyard = new Graveyard();  
+  computerGraveyard = new Graveyard(); 
+  playerQueue = new ALQueue<Unit>();
   menu = new Menu(); 
   
   size(1000,500);
@@ -23,12 +25,12 @@ void draw(){
   menu.loadMenu();
   //Spawning Troops  
   if(menu.buttonPressed() == 0 && doOnce == false && menu.getCurrency() >= Swordsmen.COST ){
-    playerTeam.add(new Swordsmen(true));
+    playerQueue.enqueue(new Swordsmen(true));
     menu.changeCurrency(Swordsmen.COST);
     doOnce = true;
   }
   if(menu.buttonPressed() == 1 && doOnce == false){
-    playerTeam.add(new Swordsmen(true));
+    System.out.println("Wizard");
     doOnce = true;
   }
   

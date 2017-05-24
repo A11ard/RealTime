@@ -3,7 +3,8 @@ class Menu{
   //Buttons
   Button[] buttons = new Button[3];
   int currency;
-  int start; 
+  int start;
+  int timer; 
   //castle health
   //currency you have
   //deck + utility cards
@@ -38,7 +39,10 @@ class Menu{
      fill(0);
      text("Currency: ", width/2 - 65, height - 40);
      text(currency, width/2,height - 40);
-  
+      
+     //timer
+     timer = millis()/1000;
+     text(timer,width/2,height/2);
   }
   
   
@@ -57,6 +61,9 @@ class Menu{
   
   void changeCurrency(int value){
     currency -= value;
+  }
+  int getTime(){
+    return timer;
   }
   
 }
