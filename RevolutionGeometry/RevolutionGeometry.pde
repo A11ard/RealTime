@@ -27,9 +27,15 @@ void draw() {
   if (menu.buttonPressed() == 0 && doOnce == false && menu.getCurrency() >= Swordsmen.COST ) {
     playerTeam.add(new Swordsmen(true));
     //playerQueue.enqueue(new Swordsmen(true));
-    //menu.changeCurrency(Swordsmen.COST);
+    menu.setCurrency(menu.getCurrency() - Swordsmen.COST);
     doOnce = true;
   }
+  if (menu.buttonPressed() == 3 && doOnce == false && menu.getCurrency() >= Miner.COST ) {
+    playerTeam.add(new Miner(true));
+    //playerQueue.enqueue(new Swordsmen(true));
+    menu.setCurrency(menu.getCurrency() - Miner.COST);
+    doOnce = true;
+  }  
   if (menu.buttonPressed() == 1 && doOnce == false) {
     System.out.println("Wizard");
     doOnce = true;
@@ -39,6 +45,7 @@ void draw() {
     computerTeam.add(new Swordsmen(false));
     doOnce = true;
   }
+
 
   for(int i = 0; i < playerTeam.size(); i++){
     Unit unit = playerTeam.get(i);
