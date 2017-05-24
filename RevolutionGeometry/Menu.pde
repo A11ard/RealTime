@@ -1,7 +1,7 @@
 class Menu{
   
   //Buttons
-  Button[] buttons = new Button[3];
+  Button[] buttons = new Button[4];
   int currency;
   int start;
   int timer; 
@@ -10,7 +10,7 @@ class Menu{
   //deck + utility cards
   //units on field
  Menu(){
-   currency = 0; 
+   currency = 90000; //changed to 90000 for testing
  }
  
  
@@ -25,6 +25,7 @@ class Menu{
      buttons[0] = new Button(width/2 + 90, height - 40, "Swords", 0);
      buttons[1] = new Button(width/2 + 180, height - 40, "Wizard",1);
      buttons[2] = new Button(width/2 + 270, height - 40, "Enemy",2);
+     buttons[3] = new Button(width/2 + 360, height - 40, "Miner",3);
      
      for(Button item: buttons){
        item.display();
@@ -59,9 +60,14 @@ class Menu{
     return currency;
   }
   
+  void setCurrency(int val){
+    currency = val; 
+  }
+  
   void changeCurrency(int value){
     currency -= value;
   }
+  
   int getTime(){
     return timer;
   }
