@@ -54,6 +54,7 @@ void draw() {
     unit.drawUnit();
     unit.updateHealth();
     //unit.move(target);
+    if(unit.miner) menu.setCurrency(menu.getCurrency() + 5); //if this unit is a miner, add 20 currency to balance
     unit.attack(target);
     unit.death(playerTeam, unit);
   }
@@ -64,6 +65,7 @@ void draw() {
     unit.drawUnit();
     unit.updateHealth();
     //unit.move(target);
+    //if(unit.miner) menu.setCurrency(menu.getCurrency() + 20); //if this unit is a miner, add 20 currency to balance
     unit.attack(target);
     unit.death(computerTeam, unit);
   }
