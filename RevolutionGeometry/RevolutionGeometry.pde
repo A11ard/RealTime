@@ -16,6 +16,9 @@ void setup() {
   playerQueue = new ALQueue<Unit>();
   menu = new Menu(); 
 
+  //Spawn Your Commander
+  playerTeam.add(new Commander(true));
+  
   size(1000, 500);
 }
 
@@ -24,6 +27,7 @@ void draw() {
   fill(255);
   menu.loadMenu();
   //Spawning Troops  
+  
   if (menu.buttonPressed() == 0 && doOnce == false && menu.getCurrency() >= Swordsmen.COST ) {
     playerTeam.add(new Swordsmen(true));
     //playerQueue.enqueue(new Swordsmen(true));

@@ -1,12 +1,12 @@
-class Wizard extends Unit{
+class Commander extends Unit{
   //int lifeinit;
   static final int COST = 5;
 
   
-  Wizard(boolean _team){
+  Commander(boolean _team){
     //100 is the menuH, height/2 is the maximum height the units will spawn, 20 is so it won't touch menu
     //super(int _life, float _speed, int _damage, int _trainingTime, boolean _team, int _y)
-    super(100,1.0,20,2,_team, (int)random(height - 80 - (height/2) - 20));
+    super(200,2.0,30,2,_team, (int)random(height - 80 - (height/2) - 20));
     if(_team == true){
       position = new PVector(50, height/2 + y);
     }
@@ -20,16 +20,32 @@ class Wizard extends Unit{
 
 
   int identifier(){
-    return 2;
+    return 3;
   }
   
+void attack(Unit target){
+  if(keyPressed){
+    if(key == 'w'){
+    
+    }
+    else if(key == 'a'){
+    
+    }
+    else if(key == 's'){
+    
+    }
+    else if(key == 'd'){
+    
+    }
+  }
+}
   
   /**
   draws a swordsman as a 10 by 10 square centered at its (x,y) coordinates.
   */
   void drawUnit(){
     stroke(0);
-    fill(255);
+    fill(0,255,0);;
     rect(position.x+5,position.y,10,10);
   }
   /*
