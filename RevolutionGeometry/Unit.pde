@@ -3,26 +3,25 @@ abstract class Unit{
 protected int life; 
 protected float speed;
 protected int trainingTime; 
-//protected int cost;
 protected PVector position; 
 protected int damage;
 protected boolean team;
 protected int y;
-protected float attackRange;
-protected boolean miner; //if it is a miner, then true 
+protected float attackRange; 
+int lifeinit;
 
 abstract void drawUnit();
-abstract void updateHealth();
+//abstract void updateHealth();
 abstract int identifier();
 
-public Unit(int _life, float _speed, int _damage, int _trainingTime, boolean _team, int _y, boolean isMiner){
+public Unit(int _life, float _speed, int _damage, int _trainingTime, boolean _team, int _y){
    life = _life;
    speed = _speed;
    trainingTime = _trainingTime;
    damage = _damage; 
    team = _team;
    y = _y;
-   miner = isMiner; 
+   lifeinit = life;
    
 }
 
@@ -42,13 +41,15 @@ void attack(Unit target){
   if(target == null){
     move(null);
   }
-  else {
+  else {   
     float distance = position.dist(target.position); //dist from unit to target
-    if (attackRange > distance){
-      target.changeLife(damage);
+    if ((attackRange > distance) && frameCount % 30 == 0){
+        System.out.println("shouldn't be moving");
+         target.changeLife(damage);
     }
-    else {
+     else{
       move(target);
+      System.out.println("should be moving");
     }
   }
 }
@@ -59,6 +60,16 @@ void death(ArrayList team, Unit unit){
     team.remove(team.indexOf(unit));
   }
 }
+
+void updateHealth(){
+    fill(0,255,0);
+    float lifebar = 20.0;
+    int size = 3;
+    rect(position.x, position.y - 5,lifebar,size);
+    //Updating health requires this, when you get attacked, creates a new rect that decreases health bar 
+    fill(255,0,0);
+    rect(position.x + lifebar,position.y - 5,life/(lifeinit/lifebar) - lifebar,size);
+  }
 
 /***************************************
  Select the closest enemy unit of the caller as target.

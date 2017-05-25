@@ -27,17 +27,12 @@ void draw() {
   if (menu.buttonPressed() == 0 && doOnce == false && menu.getCurrency() >= Swordsmen.COST ) {
     playerTeam.add(new Swordsmen(true));
     //playerQueue.enqueue(new Swordsmen(true));
-    menu.setCurrency(menu.getCurrency() - Swordsmen.COST);
+    menu.changeCurrency(Swordsmen.COST);
     doOnce = true;
   }
-  if (menu.buttonPressed() == 3 && doOnce == false && menu.getCurrency() >= Miner.COST ) {
-    playerTeam.add(new Miner(true));
-    //playerQueue.enqueue(new Swordsmen(true));
-    menu.setCurrency(menu.getCurrency() - Miner.COST);
-    doOnce = true;
-  }  
   if (menu.buttonPressed() == 1 && doOnce == false) {
-    System.out.println("Wizard");
+    playerTeam.add(new Wizard(true));
+    menu.changeCurrency(Wizard.COST);
     doOnce = true;
   }
 
@@ -45,27 +40,30 @@ void draw() {
     computerTeam.add(new Swordsmen(false));
     doOnce = true;
   }
+  
+  if (menu.buttonPressed() == 3 && doOnce == false && menu.getCurrency() >= Miner.COST ) {
+    playerTeam.add(new Miner(true));
+    menu.changeCurrency(Miner.COST);
+    menu.changeRate(2);
+    doOnce = true;
+  }  
 
 
   for(int i = 0; i < playerTeam.size(); i++){
     Unit unit = playerTeam.get(i);
     Unit target = unit.selectTarget(computerTeam);
-    fill(0, 0, 255);
     unit.drawUnit();
     unit.updateHealth();
     //unit.move(target);
-    if(unit.miner) menu.setCurrency(menu.getCurrency() + 5); //if this unit is a miner, add 20 currency to balance
-    unit.attack(target);
+    unit.attack(target);    
     unit.death(playerTeam, unit);
   }
   for(int i = 0; i < computerTeam.size(); i++){
     Unit unit = computerTeam.get(i);
     Unit target = unit.selectTarget(playerTeam);
-    fill(255, 0, 0);
     unit.drawUnit();
     unit.updateHealth();
     //unit.move(target);
-    //if(unit.miner) menu.setCurrency(menu.getCurrency() + 20); //if this unit is a miner, add 20 currency to balance
     unit.attack(target);
     unit.death(computerTeam, unit);
   }

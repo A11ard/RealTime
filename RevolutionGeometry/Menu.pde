@@ -3,6 +3,7 @@ class Menu{
   //Buttons
   Button[] buttons = new Button[4];
   int currency;
+  int rate;
   int start;
   int timer; 
   //castle health
@@ -10,7 +11,8 @@ class Menu{
   //deck + utility cards
   //units on field
  Menu(){
-   currency = 90000; //changed to 90000 for testing
+   currency = 0; 
+   rate = 5; //increased coinage
  }
  
  
@@ -32,7 +34,7 @@ class Menu{
      }
      //display currency
      if(millis() - start > 1000){
-       currency += 1;
+       currency += rate; // increased rate for testing
        start = millis();
      }
      noFill();
@@ -60,13 +62,14 @@ class Menu{
     return currency;
   }
   
-  void setCurrency(int val){
-    currency = val; 
+  void changeRate(int value){
+    rate += value;
   }
   
   void changeCurrency(int value){
     currency -= value;
   }
+  
   
   int getTime(){
     return timer;
