@@ -9,18 +9,20 @@ protected int damage;
 protected boolean team;
 protected int y;
 protected float attackRange;
+protected boolean miner; //if it is a miner, then true 
 
 abstract void drawUnit();
 abstract void updateHealth();
 abstract int identifier();
 
-public Unit(int _life, float _speed, int _damage, int _trainingTime, boolean _team, int _y){
+public Unit(int _life, float _speed, int _damage, int _trainingTime, boolean _team, int _y, boolean isMiner){
    life = _life;
    speed = _speed;
    trainingTime = _trainingTime;
    damage = _damage; 
    team = _team;
    y = _y;
+   miner = isMiner; 
    
 }
 
