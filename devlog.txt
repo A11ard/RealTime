@@ -48,5 +48,5 @@ Swordsmen capable of attack, move, and draw a visual representation of itself.
 - Added Miner class: these are units that collect currency 
 - Added the button for training miners in class Menu
 - Made Miners stationary on training (they stay in the location they spawn in)
-
+- Allowed for miners to add currency 
 
