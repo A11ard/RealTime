@@ -24,34 +24,28 @@ class Commander extends Unit{
   }
   
 void attack(Unit target){
-  if(keyPressed){
-    if(key == 'w'){
-      position.y -= speed;
-    }
-    else if(key == 'a'){
-      position.x -= speed;
-    }
-    else if(key == 's'){
-      position.y += speed;
-    }
-    else if(key == 'd'){
-      position.x += speed;
-    }
-    else if(key == 'j'){
+  if(isUp){
+     position.y -= speed;}
+  if(isLeft){
+     position.x -= speed;}
+    if(isDown){
+      position.y += speed;}
+    if(isRight){
+      position.x += speed;}
+    if(key == 'j'){
      if(target == null){ //no target
         return;
-      }
+     }
      else{
       float distance = position.dist(target.position); //dist from unit to target
       if (attackRange > distance){ //if within range
-    
-          target.changeLife(damage);
-        
+          target.changeLife(damage);  
       }
      }
     }
-  }
+  
 }
+
  
   /**
   draws a swordsman as a 10 by 10 square centered at its (x,y) coordinates.

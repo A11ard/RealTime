@@ -5,6 +5,7 @@ Graveyard playerGraveyard;
 Graveyard computerGraveyard;
 Menu menu;
 boolean doOnce;
+boolean isUp, isDown, isLeft, isRight; 
 
 
 
@@ -79,4 +80,34 @@ void draw() {
 
 void mouseReleased() {
   doOnce = false;
+}
+
+void keyPressed(){
+  if(key == 'w'){
+    isUp = true;
+  }
+  if(key == 'a' ){
+    isLeft = true;
+  }
+  if(key == 's'){ 
+    isDown = true;
+  }
+  if(key == 'd'){
+    isRight = true;
+  }
+}
+
+void keyReleased(){
+    if(key == 'w'){
+    isUp = false;
+  }
+  if(key == 'a' ){
+    isLeft = false;
+  }
+  if(key == 's'){ 
+    isDown = false;
+  }
+  if(key == 'd'){
+    isRight = false;
+  }
 }
