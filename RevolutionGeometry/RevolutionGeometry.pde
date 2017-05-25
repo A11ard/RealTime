@@ -58,7 +58,6 @@ void draw() {
     Unit target = unit.selectTarget(computerTeam);
     unit.drawUnit();
     unit.updateHealth();
-    //unit.move(target);
     unit.attack(target);    
     unit.death(playerTeam, unit);
   }
@@ -67,7 +66,6 @@ void draw() {
     Unit target = unit.selectTarget(playerTeam);
     unit.drawUnit();
     unit.updateHealth();
-    //unit.move(target);
     unit.attack(target);
     unit.death(computerTeam, unit);
   }
