@@ -1,3 +1,9 @@
+Team: RealTime
+Roster: Jeffrey Weng, Allard Peng, Leo Liu
+APCS2 pd3
+
+Revolution Geometry
+
 2017-05-18 Jeffrey Weng
 - Created plan for 20170518 and updated README file
 
