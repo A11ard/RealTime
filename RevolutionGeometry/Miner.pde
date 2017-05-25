@@ -5,7 +5,7 @@ class Miner extends Unit{
   Miner(boolean _team){
     //100 is the menuH, height/2 is the maximum height the units will spawn, 20 is so it won't touch menu
     //super(int _life, float _speed, int _damage, int _trainingTime, int _cost, boolean _team, int _y)
-    super(100,1.0,2,2,_team, (int)random(height - 80 - (height/2) - 20));
+    super(100,1.0,2,2,_team, (int)random(height - 80 - (height/2) - 20), true);
     if(_team == true){
       position = new PVector(50, height/2 + y);
     }
