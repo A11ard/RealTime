@@ -1,7 +1,7 @@
 class Menu{
   
   //Buttons
-  Button[] buttons = new Button[4];
+  Button[] buttons = new Button[5];
   int currency;
   int rate;
   int start;
@@ -28,6 +28,7 @@ class Menu{
      buttons[1] = new Button(width/2 + 180, height - 40, "Wizard",1);
      buttons[2] = new Button(width/2 + 270, height - 40, "Enemy",2);
      buttons[3] = new Button(width/2 + 360, height - 40, "Miner",3);
+     buttons[4] = new Button(width/2 + 450, height - 40, "Archer",4);
      
      for(Button item: buttons){
        item.display();

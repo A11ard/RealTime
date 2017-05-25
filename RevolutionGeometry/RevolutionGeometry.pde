@@ -47,6 +47,12 @@ void draw() {
     menu.changeRate(2);
     doOnce = true;
   }  
+  
+  if (menu.buttonPressed() == 4 && doOnce == false && menu.getCurrency() >= Archer.COST ) {
+    playerTeam.add(new Archer(true));
+    menu.changeCurrency(Archer.COST);
+    doOnce = true;
+  } 
 
 
   for(int i = 0; i < playerTeam.size(); i++){

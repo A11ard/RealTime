@@ -15,6 +15,10 @@ class Archer extends Unit{
     attackRange = 150;
   }
   
+  int identifier(){
+    return 0;
+  }
+  
   void drawUnit(){
     stroke(0);
     if(team == true){
@@ -24,6 +28,5 @@ class Archer extends Unit{
       fill(255,0,0);  
     }
     ellipse(position.x, position.y,5,5);
-    
-}
+  }
 }
