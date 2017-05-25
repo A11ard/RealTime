@@ -50,3 +50,8 @@ Swordsmen capable of attack, move, and draw a visual representation of itself.
 - Made Miners stationary on training (they stay in the location they spawn in)
 - Allowed for miners to add currency 
 
+2017-05-24 Jeffrey Weng
+- Fixed Miner functionality: increased currency rate
+- Added Wizard class
+- Fixed attack speed, based off of framerate, because unit would insta kill each other
+
