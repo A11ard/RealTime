@@ -38,16 +38,16 @@ int getLife(){
 }
 
 void attack(Unit target){
-  if(target == null){
+  if(target == null){ //no target
     move(null);
   }
   else {   
     float distance = position.dist(target.position); //dist from unit to target
-    if ((attackRange > distance) && frameCount % 30 == 0){
+    if ((attackRange > distance) && frameCount % 30 == 0){ //if within range
         System.out.println("shouldn't be moving");
          target.changeLife(damage);
     }
-     else{
+     else{ //not within range
       move(target);
       System.out.println("should be moving");
     }
