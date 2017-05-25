@@ -14,7 +14,7 @@ class Swordsmen extends Unit{
       position = new PVector(width - 50, height/2 + y);
     }
     //lifeinit = life;
-    attackRange = 10;
+    attackRange = 15;
   }
 
 
