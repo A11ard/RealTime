@@ -24,11 +24,11 @@ class Commander extends Unit{
   }
   
 void attack(Unit target){
-    if(isUp){
+    if(isUp && position.y >= height/2){
      position.y -= speed;}
     if(isLeft){
      position.x -= speed;}
-    if(isDown){
+    if(isDown && position.y <= height - 95){
       position.y += speed;}
     if(isRight){
       position.x += speed;}
