@@ -61,3 +61,9 @@ Swordsmen capable of attack, move, and draw a visual representation of itself.
 - Added Wizard class
 - Fixed attack speed, based off of framerate, because unit would insta kill each other
 
+2017-05-25 Jeffrey Weng
+- Created Commander class
+- Player movement and attacking
+
+2017-05-25 Allard Peng
+- Tried implementing PriorityQueue that is integral in the attack function of the wizard (lots of bugs, not fixed) 
