@@ -19,7 +19,7 @@ void setup() {
 
   //Spawn Your Commander
   playerTeam.add(new Commander(true));
-  
+
   size(1000, 500);
 }
 
@@ -28,7 +28,7 @@ void draw() {
   fill(255);
   menu.loadMenu();
   //Spawning Troops  
-  
+
   if (menu.buttonPressed() == 0 && doOnce == false && menu.getCurrency() >= Swordsmen.COST ) {
     playerTeam.add(new Swordsmen(true));
     //playerQueue.enqueue(new Swordsmen(true));
@@ -45,14 +45,14 @@ void draw() {
     computerTeam.add(new Swordsmen(false));
     doOnce = true;
   }
-  
+
   if (menu.buttonPressed() == 3 && doOnce == false && menu.getCurrency() >= Miner.COST ) {
     playerTeam.add(new Miner(true));
     menu.changeCurrency(Miner.COST);
     menu.changeRate(2);
     doOnce = true;
   }  
-  
+
   if (menu.buttonPressed() == 4 && doOnce == false && menu.getCurrency() >= Archer.COST ) {
     playerTeam.add(new Archer(true));
     menu.changeCurrency(Archer.COST);
@@ -60,7 +60,7 @@ void draw() {
   } 
 
 
-  for(int i = 0; i < playerTeam.size(); i++){
+  for (int i = 0; i < playerTeam.size(); i++) {
     Unit unit = playerTeam.get(i);
     Unit target = unit.selectTarget(computerTeam);
     unit.drawUnit();
@@ -68,7 +68,7 @@ void draw() {
     unit.attack(target);    
     unit.death(playerTeam, unit);
   }
-  for(int i = 0; i < computerTeam.size(); i++){
+  for (int i = 0; i < computerTeam.size(); i++) {
     Unit unit = computerTeam.get(i);
     Unit target = unit.selectTarget(playerTeam);
     unit.drawUnit();
@@ -82,32 +82,33 @@ void mouseReleased() {
   doOnce = false;
 }
 
-void keyPressed(){
-  if(key == 'w'){
+void keyPressed() {
+  if (key == 'w' || keyCode == UP) {
     isUp = true;
   }
-  if(key == 'a' ){
+  if (key == 'a' || keyCode == LEFT) {
     isLeft = true;
   }
-  if(key == 's'){ 
+  if (key == 's' || keyCode == DOWN) { 
     isDown = true;
   }
-  if(key == 'd'){
+  if (key == 'd' || keyCode == RIGHT) {
     isRight = true;
   }
+  
 }
 
-void keyReleased(){
-    if(key == 'w'){
+void keyReleased() {
+  if (key == 'w' || keyCode == UP) {
     isUp = false;
   }
-  if(key == 'a' ){
+  if (key == 'a' || keyCode == LEFT ) {
     isLeft = false;
   }
-  if(key == 's'){ 
+  if (key == 's' || keyCode == DOWN) { 
     isDown = false;
   }
-  if(key == 'd'){
+  if (key == 'd' || keyCode == RIGHT) {
     isRight = false;
   }
 }
