@@ -16,7 +16,7 @@ class Archer extends Unit{
   }
   
   int identifier(){
-    return 0;
+    return 1;
   }
   
   void drawUnit(){

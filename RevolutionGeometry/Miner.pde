@@ -18,7 +18,7 @@ class Miner extends Unit{
   }
   
   int identifier(){
-    return 1; 
+    return 4; 
   }
   
   void drawUnit(){
