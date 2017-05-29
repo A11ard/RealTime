@@ -13,12 +13,10 @@ A RTS lane defense game, with two opposing sides looking to destroy the opposing
   * You’ll also have the units that you can use on the bottom menu that will spawn the units on to the field, that also have to be ready for deployment. 
     * There are also specific utility troops that can help you generate more currency and help defense. 
  
-**Win Condition:** Nexus of other player is destroyed OR the computer’s Commander Unit is destroyed
+**Win Condition:** Nexus of other player is destroyed OR the computer’s Commander Unit is destroyed </br>
 **Lose Condition:** Your nexus is destroyed OR Commander unit is destroyed.
 
 The entire game will be built in Processing.
-
-![Swordsmen](http://www.iconsdb.com/icons/preview/blue/square-xxl.png)
 
 ### Launch Instructions
 (Assuming you have processing)
