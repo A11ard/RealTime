@@ -37,6 +37,15 @@ int getLife(){
   return life;
 }
 
+int getTrainingTime(){
+  return trainingTime;
+}
+
+void changeTrainingTime(){
+  trainingTime -= 1;
+}
+
+
 void attack(Unit target){
   if(target == null){ //no target
     move(null);

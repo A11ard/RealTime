@@ -1,5 +1,5 @@
 ArrayList<Unit> playerTeam;
-ALQueue<Unit> playerQueue;
+ArrayPriorityQueue playerQueue;
 ArrayList<Unit> computerTeam;
 Graveyard playerGraveyard; 
 Graveyard computerGraveyard;
@@ -14,7 +14,7 @@ void setup() {
   computerTeam = new ArrayList<Unit>();
   playerGraveyard = new Graveyard(); 
   computerGraveyard = new Graveyard(); 
-  playerQueue = new ALQueue<Unit>();
+  playerQueue = new ArrayPriorityQueue();
   menu = new Menu(); 
 
   //Spawn Your Commander
@@ -30,8 +30,9 @@ void draw() {
   //Spawning Troops  
 
   if (menu.buttonPressed() == 0 && doOnce == false && menu.getCurrency() >= Swordsmen.COST ) {
-    playerTeam.add(new Swordsmen(true));
-    //playerQueue.enqueue(new Swordsmen(true));
+    //playerTeam.add(new Swordsmen(true));
+    playerQueue.add(new Swordsmen(true));
+    System.out.println(playerQueue);
     menu.changeCurrency(Swordsmen.COST);
     doOnce = true;
   }
@@ -63,6 +64,9 @@ void draw() {
   for (int i = 0; i < playerTeam.size(); i++) {
     Unit unit = playerTeam.get(i);
     Unit target = unit.selectTarget(computerTeam);
+    if(playerQueue.removeMin() != null){
+      playerTeam.add(playerQueue.removeMin());
+    }
     unit.drawUnit();
     unit.updateHealth();
     unit.attack(target);    
