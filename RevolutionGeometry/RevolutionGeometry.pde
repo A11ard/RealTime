@@ -1,6 +1,7 @@
 ArrayList<Unit> playerTeam;
 ALQueue<Unit> playerQueue;
 ArrayList<Unit> computerTeam;
+int computerCurrency;
 Graveyard playerGraveyard; 
 Graveyard computerGraveyard;
 Menu menu;
@@ -76,6 +77,8 @@ void draw() {
     unit.attack(target);
     unit.death(computerTeam, unit);
   }
+  
+  AI.choose(playerTeam, computerTeam, computerCurrency);
 }
 
 void mouseReleased() {
