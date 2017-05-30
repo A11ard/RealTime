@@ -71,3 +71,6 @@ Swordsmen capable of attack, move, and draw a visual representation of itself.
 2017-05-29 Yuanchu Liu
 - Started on a rudimentary implementation of an AI.
 - Modified identifier() to identify unit type.
+
+2017-05-30 Yuanchu Liu
+- More work on AI
