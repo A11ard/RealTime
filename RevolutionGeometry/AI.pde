@@ -1,4 +1,10 @@
 static class AI{
+  
+  static int choose(ArrayList<Unit> playerTeam, ArrayList<Unit> computerTeam, int currency){
+    //do stuff
+    
+    return 1;
+  }
   /************************
   Determine if a unit or a miner should be built
   
@@ -11,13 +17,14 @@ static class AI{
   
   Returns:
   boolean: true if a unit should be trained, false if a miner should be trained.
-  ************************/
+  **************************
   static boolean unitOrMiner(ArrayList<Unit> playerTeam, ArrayList<Unit> computerTeam){
      int playerTeamStrength = unitStrength(playerTeam);
      int computerTeamStrength = unitStrength(computerTeam);
      
      return(playerTeamStrength > computerTeamStrength);
   }
+  ************************/
   
   /**********************
   Calculate unit strength
