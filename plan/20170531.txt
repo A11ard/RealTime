@@ -1,4 +1,9 @@
 
+Team RealTime-- Yuanchu Liu, Jeffrey Weng, Allard Peng 
+APCS2 pd 3
+HW #46: ...and Ever Upward
+2017-05-30
+
 THE LATEST UPDATES ON ORDERS OF BUSINESS: 
 
 1. Jeffrey: Just finished merging priority queue for wizard functionality AND for troop training. 
