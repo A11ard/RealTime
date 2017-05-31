@@ -17,14 +17,13 @@ static class AI{
   
   Returns:
   boolean: true if a unit should be trained, false if a miner should be trained.
-  **************************
+  **************************/
   static boolean unitOrMiner(ArrayList<Unit> playerTeam, ArrayList<Unit> computerTeam){
      int playerTeamStrength = unitStrength(playerTeam);
      int computerTeamStrength = unitStrength(computerTeam);
      
      return(playerTeamStrength > computerTeamStrength);
   }
-  ************************/
   
   /**********************
   Calculate unit strength
@@ -61,13 +60,44 @@ static class AI{
   }
   
   
+  /******************
+   Return the difference in value of computer's miner and the player's miner 
+   ******************/
+  static int MinerDifference(ArrayList<Unit> playerTeam, ArrayList<Unit> computerTeam){
+    int numPlayerMiner = 0;
+    for (Unit unit: playerTeam){
+      if(unit.identifier() == 4){
+        numPlayerMiner ++; 
+      }
+    }
+    int numComputerMiner = 0;
+    for (Unit unit: computerTeam){
+      if (unit.identifier() == 4){
+        numComputerMiner ++; 
+      }
+    }
+    return (numComputerMiner - numPlayerMiner);
+  }
+  
+  
   /***********************
-    
+   Decide whether to save up money or train units
+   
+   If the computer have army strength worth at least 200 more and a better economy than the player, start saving
+   If the computer have 
    ***********************/
-  static boolean saveUp(ArrayList<Unit> playerTeam, ArrayList<Unit> computerTeam){
+  static int choose(ArrayList<Unit> playerTeam, ArrayList<Unit> computerTeam){
     int playerUnitStrength = unitStrength(playerTeam);
     int computerUnitStrength = unitStrength(computerTeam);
     
-    return (playerUnitStrength + 200 < computerUnitStrength);
+    if ((playerUnitStrength + 200 < computerUnitStrength) && (moreMiner(playerTeam,computerTeam))){
+      return 0; //save up
+    }
+    else if ((playerUnitStrength < computerUnitStrength) && (){
+      return 1; //train miner
+    }
+    else {
+      return 2; //train troops
+    }  
   }
 }
