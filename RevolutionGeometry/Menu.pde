@@ -1,11 +1,10 @@
 class Menu{
-  
-  //Buttons
-  Button[] buttons = new Button[5];
-  int currency;
-  int rate;
-  int start;
-  int timer; 
+ 
+  Button[] buttons = new Button[5]; //Buttons in the Menu
+  int currency; //Game currency for buying units
+  int rate; //Rate of how currency increases
+  int start; //Used to calculate currency based off of time
+  int timer; //Game timer
   //castle health
   //deck + utility cards
   //units on field

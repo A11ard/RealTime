@@ -1,12 +1,12 @@
-ArrayList<Unit> playerTeam;
-ArrayPriorityQueue playerQueue;
-ArrayList<Unit> computerTeam;
-int computerCurrency;
-Graveyard playerGraveyard; 
-Graveyard computerGraveyard;
-Menu menu;
-boolean doOnce;
-boolean isUp, isDown, isLeft, isRight; 
+ArrayList<Unit> playerTeam; //Arraylist of player units
+ArrayPriorityQueue playerQueue; //PriorityQueue for player units before inserting into playerTeam
+ArrayList<Unit> computerTeam; //Arraylist of enemy units
+int computerCurrency; //Computer currency
+Graveyard playerGraveyard; //player graveyard, where killed units are sent
+Graveyard computerGraveyard; //comptuer graveyard, where killed computer units are sent
+Menu menu; //defines the menu 
+boolean doOnce; //doOnce, determines if you a button has been pressed once
+boolean isUp, isDown, isLeft, isRight;  //boolean values for determining where the Commander unit is gonig
 
 
 void setup() {
@@ -96,6 +96,12 @@ void mouseReleased() {
   doOnce = false;
 }
 
+
+/******************************
+  For Commander Unit
+  keyPressed() determines which key is pressed and sets the boolean value accordingly
+  keyReleased() sets the boolean back to false to stop the character from moving 
+******************************/
 void keyPressed() {
   if (key == 'w' || keyCode == UP) {
     isUp = true;
