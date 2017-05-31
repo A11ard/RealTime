@@ -72,5 +72,13 @@ Swordsmen capable of attack, move, and draw a visual representation of itself.
 - Started on a rudimentary implementation of an AI.
 - Modified identifier() to identify unit type.
 
+2017-05-29 Jeffrey Weng
+-Updated README.md(Hw45)
+
 2017-05-30 Yuanchu Liu
 - More work on AI
+
+2017-05-30 Jeffrey Weng
+-Fixed Unit Priority Queue, Units now are spawned in based off of individual training times
+-Updated flowchart
+
