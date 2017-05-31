@@ -38,7 +38,8 @@ NEW DISCUSSED IMPLEMENTATIONS/UPDATES:
   5. Adding the remaining unit classes as discussed in the proposal 
   6. Reviewing gameplay, making sure that troops have "balanced" attack powers, speeds, life, etc. This ensures that the game is actually a playable: possible to win, possible to lose, and no one unit is considered a "tank". 
   7. Add the conditions of WIN/LOSE as discussed in proposal. 
-  8. Add the actual castles, mines, battlefield colors/features
+  8. Adding a "deck" of cards that can be used to do cool stuff on the battlefield. This'll use a standard queue. 
+  9. Add the actual castles, mines, battlefield colors/features
 
 AND... If possible, find yet another way to put in a different data structure. 
 
