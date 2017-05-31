@@ -54,13 +54,13 @@ void attack(Unit target){
     float distance = position.dist(target.position); //dist from unit to target
     if (attackRange > distance){ //if within range
       if(frameCount % 30 == 0){ //and in attack phase
-        System.out.println("shouldn't be moving");
+        //System.out.println("shouldn't be moving");
         target.changeLife(damage);
       }
     }
     else{ //not within range
       move(target);
-      System.out.println("should be moving");
+      //System.out.println("should be moving");
     }
   }
 }

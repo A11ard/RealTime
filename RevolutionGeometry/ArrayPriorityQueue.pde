@@ -1,21 +1,22 @@
-public class ArrayPriorityQueue {
+class ArrayPriorityQueue {
+  
   int start;
-  private ArrayList<Unit> _priorityQ;
+  ArrayList<Unit> _priorityQ;
 
-  public ArrayPriorityQueue() {
+  ArrayPriorityQueue() {
     _priorityQ = new ArrayList<Unit>();
   }
 
-  public void add(Unit x) {
+  void add(Unit x) {
     _priorityQ.add(x);
   }
 
-  public boolean isEmpty() {
+  boolean isEmpty() {
     return _priorityQ.size() == 0;
   }
 
   //PEEKMIN FOR TRAINING TIME
-  public int peekMin() {
+  int peekMin() {
     if (!isEmpty()) {
       int min = (int)_priorityQ.get(0).getTrainingTime();
 
@@ -29,7 +30,7 @@ public class ArrayPriorityQueue {
     return -1;
   }
 
-  public int peekMinH() {
+ /* int peekMinH() {
     if (!isEmpty()) {
       int min = (int)_priorityQ.get(0).getTrainingTime();
 
@@ -41,7 +42,7 @@ public class ArrayPriorityQueue {
       return min;
     }
     return -1;
-  }
+  }*/
 
  //Change training time for all units in queue by -1 every 1 second
   void changeTime(){
@@ -52,8 +53,8 @@ public class ArrayPriorityQueue {
        }
     }
   }
-  //REMOVEMIN FOR TRAINING TIME
-  public Unit removeMin() {
+  //REMOVEMIN FOR TRAINING TIME: used in queueing troops up to be trained: the troops that train the fastest gets priority 
+  Unit removeMin() {
     for (int i = 0; i < _priorityQ.size(); i++) { 
       //Only remove if trainingTime equals zero and is the minimum
       if ((int)_priorityQ.get(i).getTrainingTime() == peekMin() && (int)_priorityQ.get(i).getTrainingTime() == 0) {
@@ -65,7 +66,8 @@ public class ArrayPriorityQueue {
     return null;
   }
 
-  public Unit removeMinH() {
+//REMOVEMIN FOR TRAINING HEALTH: used by wizard to select attack range: enemies of lowest life gets priority
+  /*Unit removeMinH() {
     for (int i = 0; i < _priorityQ.size(); i++) {
       if ((int)_priorityQ.get(i).getLife() == peekMinH()) {
         Unit removedUnit = _priorityQ.get(i);
@@ -74,9 +76,37 @@ public class ArrayPriorityQueue {
       }
     }
     return null;
+  }*/
+  
+  Unit removeMinH(Unit firstTarget){//find the unit w the lowest life and is within strike range
+   //firstTarget is the initial "target" in wizard's attack method
+     
+     if(_priorityQ.size() == 0){
+       return null; 
+     }
+     else{
+       Unit target = null;  
+       float minLife = 99999;//represents the lowest life 
+       int index = 0; 
+       //System.out.println(_priorityQ);
+       for(Unit a: _priorityQ){        
+          if( firstTarget.position.dist(a.position) < 100 && a.life < minLife){ //if within lightning strike range and has a lower life than current lowest life
+            minLife = a.life; 
+            target = a; 
+            index = _priorityQ.indexOf(a); 
+          }
+       }
+       System.out.println(index);
+       return _priorityQ.remove(index); 
+     }
+   }
+
+  
+  void setArr(ArrayList<Unit> a){
+    _priorityQ = a; 
   }
   
-  public String toString(){
+  String toString(){
     return _priorityQ.toString();
   }
   

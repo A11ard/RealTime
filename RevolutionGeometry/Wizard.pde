@@ -14,7 +14,7 @@ class Wizard extends Unit{
       position = new PVector(width - 50, height/2 + y);
     }
     //lifeinit = life;
-    attackRange = 20;
+    attackRange = 130;
   }
 
 
@@ -22,7 +22,7 @@ class Wizard extends Unit{
   int identifier(){
     return 2;
   }
-  
+
   
   /**
   draws a swordsman as a 10 by 10 square centered at its (x,y) coordinates.
@@ -43,4 +43,32 @@ class Wizard extends Unit{
     rect(position.x + lifebar,position.y - 5,life/(lifeinit/lifebar) - lifebar,size);
   }
   */
+  
+  void attack(Unit target){
+    if(target != null){
+      float distance = position.dist(target.position); //dist from unit to target;     
+      if (attackRange > distance){ //if within range      
+        ArrayPriorityQueue possibleTargets = new ArrayPriorityQueue(); //make a priority queue of enemy troops
+        possibleTargets.setArr(computerTeam); 
+        //System.out.println(possibleTargets); 
+        for(int x = 0; x < 4; x++){//take the first 4 with lowest health and strike these
+         /* if(x > possibleTargets.size()){         
+            possibleTargets.remove(target).life -= 5;
+          }*/
+          
+          try{            
+            possibleTargets.removeMinH(target).changeLife(1);                            
+          }
+          catch(NullPointerException e){
+            break; 
+          }
+        }
+      }
+      else{
+        move(target); 
+      }
+    }
+  }
+  
+  
 }

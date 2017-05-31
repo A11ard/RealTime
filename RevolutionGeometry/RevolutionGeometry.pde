@@ -9,8 +9,6 @@ boolean doOnce;
 boolean isUp, isDown, isLeft, isRight; 
 
 
-
-
 void setup() {
   playerTeam = new ArrayList<Unit>();
   computerTeam = new ArrayList<Unit>();
