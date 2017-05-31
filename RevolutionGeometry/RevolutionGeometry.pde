@@ -10,6 +10,7 @@ boolean isUp, isDown, isLeft, isRight;
 
 
 
+
 void setup() {
   playerTeam = new ArrayList<Unit>();
   computerTeam = new ArrayList<Unit>();
@@ -28,17 +29,16 @@ void draw() {
   background(255);
   fill(255);
   menu.loadMenu();
-  //Spawning Troops  
 
+  //ADD UNITS TO QUEUE ON BUTTON PRESS
   if (menu.buttonPressed() == 0 && doOnce == false && menu.getCurrency() >= Swordsmen.COST ) {
-    //playerTeam.add(new Swordsmen(true));
     playerQueue.add(new Swordsmen(true));
     System.out.println(playerQueue);
     menu.changeCurrency(Swordsmen.COST);
     doOnce = true;
   }
   if (menu.buttonPressed() == 1 && doOnce == false) {
-    playerTeam.add(new Wizard(true));
+    playerQueue.add(new Wizard(true));
     menu.changeCurrency(Wizard.COST);
     doOnce = true;
   }
@@ -49,30 +49,39 @@ void draw() {
   }
 
   if (menu.buttonPressed() == 3 && doOnce == false && menu.getCurrency() >= Miner.COST ) {
-    playerTeam.add(new Miner(true));
+    playerQueue.add(new Miner(true));
     menu.changeCurrency(Miner.COST);
     menu.changeRate(2);
     doOnce = true;
   }  
 
   if (menu.buttonPressed() == 4 && doOnce == false && menu.getCurrency() >= Archer.COST ) {
-    playerTeam.add(new Archer(true));
+    playerQueue.add(new Archer(true));
     menu.changeCurrency(Archer.COST);
     doOnce = true;
   } 
-
-
+  
+  //ADDING UNITS TO THE FIELD BASED OFF OF TRAINING TIME
+  if(!playerQueue.isEmpty()){
+    Unit removedThing = playerQueue.removeMin();
+    if(removedThing == null){
+      playerQueue.changeTime();   
+    }
+    else{
+      playerTeam.add(removedThing);
+    }
+  }
+  
+  //MAIN PLAYERTEAM ACTIONS
   for (int i = 0; i < playerTeam.size(); i++) {
     Unit unit = playerTeam.get(i);
     Unit target = unit.selectTarget(computerTeam);
-    if(playerQueue.removeMin() != null){
-      playerTeam.add(playerQueue.removeMin());
-    }
     unit.drawUnit();
     unit.updateHealth();
     unit.attack(target);    
     unit.death(playerTeam, unit);
   }
+  //MAIN COMPUTERTEAM ACTIONS
   for (int i = 0; i < computerTeam.size(); i++) {
     Unit unit = computerTeam.get(i);
     Unit target = unit.selectTarget(playerTeam);

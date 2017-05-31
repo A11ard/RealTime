@@ -7,7 +7,6 @@ class Menu{
   int start;
   int timer; 
   //castle health
-  //currency you have
   //deck + utility cards
   //units on field
  Menu(){
