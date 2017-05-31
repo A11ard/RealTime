@@ -50,7 +50,7 @@ class Wizard extends Unit{
       float distance = position.dist(target.position); //dist from unit to target;     
       if (attackRange > distance){ //if within range      
         ArrayPriorityQueue possibleTargets = new ArrayPriorityQueue(); //make a priority queue of enemy troops
-        possibleTargets.copyArr(computerTeam); 
+        //possibleTargets.copyArr(computerTeam); 
         //System.out.println(possibleTargets); 
         for(int x = 0; x < 4; x++){//take the first 4 with lowest health and strike these
          /* if(x > possibleTargets.size()){         

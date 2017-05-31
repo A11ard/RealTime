@@ -86,6 +86,7 @@ static class AI{
    If the computer have army strength worth at least 200 more and a better economy than the player, start saving
    If the computer have 
    ***********************/
+   /*
   static int choose(ArrayList<Unit> playerTeam, ArrayList<Unit> computerTeam){
     int playerUnitStrength = unitStrength(playerTeam);
     int computerUnitStrength = unitStrength(computerTeam);
@@ -93,11 +94,11 @@ static class AI{
     if ((playerUnitStrength + 200 < computerUnitStrength) && (moreMiner(playerTeam,computerTeam))){
       return 0; //save up
     }
-    else if ((playerUnitStrength < computerUnitStrength) && (){
+    else if ((playerUnitStrength < computerUnitStrength)){
       return 1; //train miner
     }
     else {
       return 2; //train troops
     }  
-  }
+  }*/
 }
