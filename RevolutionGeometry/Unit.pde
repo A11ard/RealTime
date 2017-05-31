@@ -1,14 +1,18 @@
 abstract class Unit{
 
+/********************
+  Unit variables
+  Self explanatory
+*********************/
 protected int life; 
 protected float speed;
 protected int trainingTime; 
 protected PVector position; 
 protected int damage;
-protected boolean team;
-protected int y;
+protected boolean team; //Enemy or Player?
+protected int y; //Depth
 protected float attackRange; 
-int lifeinit;
+int lifeinit; //Stores starting health(doesn't change)
 
 abstract void drawUnit();
 //abstract void updateHealth();

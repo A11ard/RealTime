@@ -100,13 +100,11 @@ class ArrayPriorityQueue {
        return _priorityQ.remove(index); 
      }
    }
-
-  
-  void setArr(ArrayList<Unit> a){
-    _priorityQ = a; 
+    
   }
   
-  String toString(){
+  
+  public String toString(){
     return _priorityQ.toString();
   }
   
