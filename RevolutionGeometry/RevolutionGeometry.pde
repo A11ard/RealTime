@@ -63,6 +63,12 @@ void draw() {
     doOnce = true;
   } 
   
+  if (menu.buttonPressed() == 5 && doOnce == false && menu.getCurrency() >= Giant.COST ) {
+    playerQueue.add(new Giant(true));
+    menu.changeCurrency(Giant.COST);
+    doOnce = true;
+  }   
+  
   //ADDING UNITS TO THE FIELD BASED OFF OF TRAINING TIME
   if(!playerQueue.isEmpty()){
     Unit removedThing = playerQueue.removeMin();

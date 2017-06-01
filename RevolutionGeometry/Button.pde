@@ -1,7 +1,7 @@
 class Button{
   int xpos;
   int ypos;
-  int button_r = 60;
+  int button_r = 48;
   String text;
   int index = 0;
 

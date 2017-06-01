@@ -100,6 +100,12 @@ class ArrayPriorityQueue {
        return _priorityQ.remove(index); 
      }
    }
+   
+   void copyArr(ArrayList<Unit> a){
+     for(int x = 0; x < a.size(); x++){
+       _priorityQ.add(a.get(x)); 
+     }
+   }
     
  
   
