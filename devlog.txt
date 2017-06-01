@@ -87,3 +87,7 @@ Swordsmen capable of attack, move, and draw a visual representation of itself.
 -For class ArrayPriorityQueue, added the method at which wizards shall use to search and remove (removal of lowest life) in targeting
 -Updated UML diagrams and plan 
 -Worked on class Giant, not up yet
+
+2017-05-31 Allard Peng
+-Added Giants 
+-Fixed Wizard attack algorithm (should be final version) 
