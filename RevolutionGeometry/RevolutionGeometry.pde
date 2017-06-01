@@ -6,8 +6,8 @@ Graveyard playerGraveyard; //player graveyard, where killed units are sent
 Graveyard computerGraveyard; //comptuer graveyard, where killed computer units are sent
 Menu menu; //defines the menu 
 boolean doOnce; //doOnce, determines if you a button has been pressed once
-boolean isUp, isDown, isLeft, isRight;  //boolean values for determining where the Commander unit is gonig
-
+boolean isUp, isDown, isLeft, isRight, isAttack;  //boolean values for determining where the Commander unit is gonig
+int attackCharge; //intializes attack charge
 
 void setup() {
   playerTeam = new ArrayList<Unit>();
@@ -19,7 +19,11 @@ void setup() {
 
   //Spawn Your Commander
   playerTeam.add(new Commander(true));
-
+  attackCharge = 3; //sets attack charge
+  
+  //Spawn Nexuses
+  playerTeam.add(new Nexus(true));
+  computerTeam.add(new Nexus(false));
   size(1000, 500);
 }
 
@@ -115,6 +119,9 @@ void keyPressed() {
   if (key == 'd' || keyCode == RIGHT) {
     isRight = true;
   }
+  if(key == 'j'){
+    isAttack = true;
+  }
   
 }
 
@@ -130,5 +137,9 @@ void keyReleased() {
   }
   if (key == 'd' || keyCode == RIGHT) {
     isRight = false;
+  }
+  if(key == 'j'){
+    isAttack = false;
+    attackCharge = 3;
   }
 }
