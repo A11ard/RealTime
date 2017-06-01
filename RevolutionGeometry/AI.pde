@@ -3,8 +3,14 @@ static class AI{
   static int choose(ArrayList<Unit> playerTeam, ArrayList<Unit> computerTeam, int currency){
     //do stuff
     
+    int playerTeamStrength = unitStrength(playerTeam);
+    int computerTeamStrength = unitStrength(computerTeam);
+    int economyDifference = minerDifference(playerTeam,computerTeam);
+    int armyDifference = armyDifference(playerTeamStrength, computerTeamStrength);
+    
     return 1;
   }
+  
   /************************
   Determine if a unit or a miner should be built
   
@@ -18,11 +24,8 @@ static class AI{
   Returns:
   boolean: true if a unit should be trained, false if a miner should be trained.
   **************************/
-  static boolean unitOrMiner(ArrayList<Unit> playerTeam, ArrayList<Unit> computerTeam){
-     int playerTeamStrength = unitStrength(playerTeam);
-     int computerTeamStrength = unitStrength(computerTeam);
-     
-     return(playerTeamStrength > computerTeamStrength);
+  static int armyDifference(int playerTeamStrength, int computerTeamStrength){
+     return computerTeamStrength - playerTeamStrength;
   }
   
   /**********************
@@ -63,7 +66,7 @@ static class AI{
   /******************
    Return the difference in value of computer's miner and the player's miner 
    ******************/
-  static int MinerDifference(ArrayList<Unit> playerTeam, ArrayList<Unit> computerTeam){
+  static int minerDifference(ArrayList<Unit> playerTeam, ArrayList<Unit> computerTeam){
     int numPlayerMiner = 0;
     for (Unit unit: playerTeam){
       if(unit.identifier() == 4){
