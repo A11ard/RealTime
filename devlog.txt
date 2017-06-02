@@ -91,3 +91,6 @@ Swordsmen capable of attack, move, and draw a visual representation of itself.
 2017-05-31 Allard Peng
 -Added Giants 
 -Fixed Wizard attack algorithm (should be final version) 
+
+2017-06-01 Allard Peng
+-Updated UML diagrams and plan 
