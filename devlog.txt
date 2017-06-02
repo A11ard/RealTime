@@ -90,7 +90,19 @@ Swordsmen capable of attack, move, and draw a visual representation of itself.
 
 2017-05-31 Allard Peng
 -Added Giants 
--Fixed Wizard attack algorithm (should be final version) 
+-Fixed Wizard attack algorithm (should be final version)
+
+2017-05-31 Jeffrey Weng
+-Added nexus
+-added recharge time for commander, commander can only use attack for a certain amount of time
+-Made inline comments for each variable used
+
 
 2017-06-01 Allard Peng
 -Updated UML diagrams and plan 
+
+2017-06-01 Jeffrey Weng
+- Added images for our castles
+- Changed attackpoint range for castle
+- changed miner costs, now costs more after each upgrade
+- Commander does less damage per each second(makes charged attacks more efficient)
