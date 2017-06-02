@@ -1,0 +1,16 @@
+Team RealTime-- Yuanchu Liu, Jeffrey Weng, Allard Peng 
+APCS2 pd 3
+HW #47: Are We There Yet
+2017-05-30
+
+THE LATEST UPDATES ON ORDERS OF BUSINESS: 
+
+  For trio: 
+    Leo--> Write a working AI    
+    Allard/Jeffrey--> Finish all necessary classes 
+    EVERYONE--> -Balance the units in terms of their power 
+                -Tie up loose ends in terms of code 
+
+NEW DISCUSSED IMPLEMENTATIONS/UPDATES: 
+
+  -With respect to the previous plan, there were no newly discussed implementations. The goal is now to do everything that was listed above. 
