@@ -14,6 +14,7 @@ protected int y; //Depth
 protected float attackRange; 
 int lifeinit; //Stores starting health(doesn't change)
 
+
 abstract void drawUnit();
 //abstract void updateHealth();
 abstract int identifier();

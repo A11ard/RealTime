@@ -7,10 +7,10 @@ class Nexus extends Unit{
     ******************/
     super(1000,0.8,2,2,_team,0);
     if(_team == true){
-      position = new PVector(0, height/2 + 50); //Spawns unit on the player field
+      position = new PVector(170, height/2 + 75); //Spawns unit on the player field
     }
     else{
-      position = new PVector(width - 100, height/2 + 50); //Spawns unit on the enemy field
+      position = new PVector(width - 170, height/2 + 75); //Spawns unit on the enemy field
     }
   }
   
@@ -25,18 +25,25 @@ class Nexus extends Unit{
   void drawUnit(){
     stroke(0);
     noFill();
-    rect(position.x,position.y,100,100);
+    rect(position.x,position.y,10,10);
   }  
   
     
   void updateHealth(){
     fill(0,255,0);
-    float lifebar = 100.0;
+    float lifebar = 170.0;
     int size = 3;
-    rect(position.x, position.y - 5,lifebar,size);
+    if(team == false){
+      rect(position.x,height/2, lifebar, size);
+      fill(255,0,0);
+      rect(position.x + lifebar,height/2,life/(lifeinit/lifebar) - lifebar,size);
+    }
+    else{
+      rect(position.x - 170, height/2,lifebar,size);
+      fill(255,0,0);
+      rect(position.x + lifebar - 170,height/2,life/(lifeinit/lifebar) - lifebar,size);
+    }
     //Updating health requires this, when you get attacked, creates a new rect that decreases health bar 
-    fill(255,0,0);
-    rect(position.x + lifebar,position.y - 5,life/(lifeinit/lifebar) - lifebar,size);
   }
    
 }

@@ -8,6 +8,9 @@ Menu menu; //defines the menu
 boolean doOnce; //doOnce, determines if you a button has been pressed once
 boolean isUp, isDown, isLeft, isRight, isAttack;  //boolean values for determining where the Commander unit is gonig
 int attackCharge; //intializes attack charge
+Miner miner; //spawn Miner
+PImage playerCastleImg; 
+PImage enemyCastleImg;
 
 void setup() {
   playerTeam = new ArrayList<Unit>();
@@ -16,6 +19,9 @@ void setup() {
   computerGraveyard = new Graveyard(); 
   playerQueue = new ArrayPriorityQueue();
   menu = new Menu(); 
+  
+  //spawn Miner
+  miner = new Miner(true);
 
   //Spawn Your Commander
   playerTeam.add(new Commander(true));
@@ -24,13 +30,20 @@ void setup() {
   //Spawn Nexuses
   playerTeam.add(new Nexus(true));
   computerTeam.add(new Nexus(false));
-  size(1000, 500);
+  size(1250, 500);
+  
+  //Load images
+  playerCastleImg = loadImage("playerCastle.png");
+  enemyCastleImg = loadImage("enemyCastle.png");
 }
 
 void draw() {
   background(255);
   fill(255);
   menu.loadMenu();
+  System.out.print(mouseX + ", " + mouseY); 
+  image(playerCastleImg, 0, height/2,170,170);
+  image(enemyCastleImg, width - 170, height/2, 170,170);
 
   //ADD UNITS TO QUEUE ON BUTTON PRESS
   if (menu.buttonPressed() == 0 && doOnce == false && menu.getCurrency() >= Swordsmen.COST ) {
@@ -39,7 +52,7 @@ void draw() {
     menu.changeCurrency(Swordsmen.COST);
     doOnce = true;
   }
-  if (menu.buttonPressed() == 1 && doOnce == false) {
+  if (menu.buttonPressed() == 1 && doOnce == false && menu.getCurrency() >= Wizard.COST) {
     playerQueue.add(new Wizard(true));
     menu.changeCurrency(Wizard.COST);
     doOnce = true;
@@ -50,9 +63,10 @@ void draw() {
     doOnce = true;
   }
 
-  if (menu.buttonPressed() == 3 && doOnce == false && menu.getCurrency() >= Miner.COST ) {
+  if (menu.buttonPressed() == 3 && doOnce == false && menu.getCurrency() >= miner.getCost()) {
     playerQueue.add(new Miner(true));
-    menu.changeCurrency(Miner.COST);
+    menu.changeCurrency(miner.getCost());
+    miner.changeCost(20);
     menu.changeRate(2);
     doOnce = true;
   }  

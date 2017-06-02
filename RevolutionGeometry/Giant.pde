@@ -1,6 +1,6 @@
 class Giant extends Unit{
   //int lifeinit;
-  static final int COST = 1;
+  static final int COST = 10;
 
   
   Giant(boolean _team){
@@ -16,7 +16,7 @@ class Giant extends Unit{
       position = new PVector(width - 50, height/2 + y); //Spawns unit on the enemy field
     }
     //lifeinit = life;
-    attackRange = 50;
+    attackRange = 15;
   }
 
 

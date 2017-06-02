@@ -22,12 +22,12 @@ class Menu{
      fill(211,211,211);
      rect(0,height - menuH,width,menuH);
      //Swordsmen button
-     buttons[0] = new Button(width/2 + 50, height - 40, "Swords", 0);
-     buttons[1] = new Button(width/2 + 100, height - 40, "Wizard",1);
-     buttons[2] = new Button(width/2 + 150, height - 40, "Enemy",2);
-     buttons[3] = new Button(width/2 + 200, height - 40, "Miner",3);
-     buttons[4] = new Button(width/2 + 250, height - 40, "Archer",4);
-     buttons[5] = new Button(width/2 + 300, height - 40, "Giant",5);
+     buttons[0] = new Button(width/2 + 70, height - 40, "Swords", 0);
+     buttons[1] = new Button(width/2 + 120, height - 40, "Wizard",1);
+     buttons[2] = new Button(width/2 + 170, height - 40, "Enemy",2);
+     buttons[3] = new Button(width/2 + 220, height - 40, "Miner",3);
+     buttons[4] = new Button(width/2 + 270, height - 40, "Archer",4);
+     buttons[5] = new Button(width/2 + 320, height - 40, "Giant",5);
      
      for(Button item: buttons){
        item.display();

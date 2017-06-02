@@ -1,6 +1,6 @@
 class Miner extends Unit{
   int lifeinit;
-  static final int COST = 10;
+  int COST = 10;
   int direction = 0;
   
   Miner(boolean _team){
@@ -22,6 +22,14 @@ class Miner extends Unit{
   int identifier(){
     return 4; 
   }
+  
+  int getCost(){
+    return COST;
+  }
+  void changeCost(int cost){
+    COST += cost;
+  }
+  
   
   void drawUnit(){
     stroke(0);
