@@ -1,5 +1,5 @@
 class Wizard extends Unit{
-  static final int COST = 5;
+  static final int COST = 50;
 
   
   Wizard(boolean _team){

@@ -1,14 +1,43 @@
 static class AI{
   
-  static int choose(ArrayList<Unit> playerTeam, ArrayList<Unit> computerTeam, int currency){
-    //do stuff
-    
+  static int[] choose(ArrayList<Unit> playerTeam, ArrayList<Unit> computerTeam, int currency){
+    //calculate all relevant statistics
     int playerTeamStrength = unitStrength(playerTeam);
     int computerTeamStrength = unitStrength(computerTeam);
     int economyDifference = minerDifference(playerTeam,computerTeam);
     int armyDifference = armyDifference(playerTeamStrength, computerTeamStrength);
     
-    return 1;
+    if((armyDifference - economyDifference * 20 > 0) && armyDifference < 0){//more $, less troops
+      int[] output = {0, chooseUnitToTrain(currency)};
+      return output;
+    }
+    else if(economyDifference < 0 && (armyDifference - economyDifference * 20 < 0)){
+      int[] output = {0,4};
+      return output;
+    }
+    else{
+      int[] output = {1};
+      return output;
+    }
+
+  }
+  
+  static int chooseUnitToTrain(int currency){
+    if(currency > 100){
+      return 5; //giant.identifier() result
+    }
+    else if(currency > 50){
+      return 2;//wizard.identifier() result
+    }
+    else if(currency > 15){
+      return 1;//archer.identifier()
+    }
+    else if(currency > 10){
+      return 0;//swordsmen.identifier()
+    }
+    else {
+      return -1;//no money
+    }
   }
   
   /************************
