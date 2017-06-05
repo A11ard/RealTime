@@ -49,6 +49,7 @@ public class ALQueue<T>
     /* YOUR IMPLEMENTATION HERE */
     return _queue.size() == 0;
   }//O(1)
+  
 
 
   public String toString() 
