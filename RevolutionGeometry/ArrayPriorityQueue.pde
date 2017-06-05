@@ -1,6 +1,4 @@
 class ArrayPriorityQueue {
-  
-  int start;
   ArrayList<Unit> _priorityQ;
 
   ArrayPriorityQueue() {
@@ -47,10 +45,9 @@ class ArrayPriorityQueue {
  //Change training time for all units in queue by -1 every 1 second
   void changeTime(){
       for (int i = 0; i < _priorityQ.size(); i++) {
-         if(millis() - start > 1000){
-         _priorityQ.get(i).changeTrainingTime();
-         start = millis();
-       }
+           if(frameCount % 60 == 0){
+             _priorityQ.get(i).changeTrainingTime();
+           }
     }
   }
   //REMOVEMIN FOR TRAINING TIME: used in queueing troops up to be trained: the troops that train the fastest gets priority 

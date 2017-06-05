@@ -44,7 +44,7 @@ void draw() {
   background(255);
   fill(255);
   menu.loadMenu();
-  System.out.print(mouseX + ", " + mouseY); 
+  //System.out.print(mouseX + ", " + mouseY); 
   image(playerCastleImg, 0, height/2,170,170);
   image(enemyCastleImg, width - 170, height/2, 170,170);
 
@@ -60,13 +60,9 @@ void draw() {
     menu.changeCurrency(Wizard.COST);
     doOnce = true;
   }
+  
 
-  if (menu.buttonPressed() == 2 && doOnce == false) {
-    computerTeam.add(new Swordsmen(false));
-    doOnce = true;
-  }
-
-  if (menu.buttonPressed() == 3 && doOnce == false && menu.getCurrency() >= miner.getCost()) {
+  if (menu.buttonPressed() == 2 && doOnce == false && menu.getCurrency() >= miner.getCost()) {
     playerQueue.add(new Miner(true));
     menu.changeCurrency(miner.getCost());
     miner.changeCost(20);
@@ -74,17 +70,18 @@ void draw() {
     doOnce = true;
   }  
 
-  if (menu.buttonPressed() == 4 && doOnce == false && menu.getCurrency() >= Archer.COST ) {
+  if (menu.buttonPressed() == 3 && doOnce == false && menu.getCurrency() >= Archer.COST ) {
     playerQueue.add(new Archer(true));
     menu.changeCurrency(Archer.COST);
     doOnce = true;
   } 
   
-  if (menu.buttonPressed() == 5 && doOnce == false && menu.getCurrency() >= Giant.COST ) {
+  if (menu.buttonPressed() == 4 && doOnce == false && menu.getCurrency() >= Giant.COST ) {
     playerQueue.add(new Giant(true));
     menu.changeCurrency(Giant.COST);
     doOnce = true;
   }
+  
   
   //computer action
   int numComputerMiner = 0;
@@ -147,6 +144,7 @@ void draw() {
     unit.updateHealth();
     unit.attack(target);    
     unit.death(playerTeam, unit);
+    System.out.println(unit.getTrainingTime());
   }
   //MAIN COMPUTERTEAM ACTIONS
   for (int i = 0; i < computerTeam.size(); i++) {

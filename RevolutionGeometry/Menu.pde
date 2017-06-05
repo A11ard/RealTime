@@ -1,9 +1,9 @@
 class Menu{
  
-  Button[] buttons = new Button[6]; //Buttons in the Menu
+  Button[] buttons = new Button[5]; //Buttons in the Menu
   int currency; //Game currency for buying units
   int rate; //Rate of how currency increases
-  int start; //Used to calculate currency based off of time
+  //int start; //Used to calculate currency based off of time
   int timer; //Game timer
   //castle health
   //deck + utility cards
@@ -24,18 +24,22 @@ class Menu{
      //Swordsmen button
      buttons[0] = new Button(width/2 + 70, height - 40, "Swords", 0);
      buttons[1] = new Button(width/2 + 120, height - 40, "Wizard",1);
-     buttons[2] = new Button(width/2 + 170, height - 40, "Enemy",2);
-     buttons[3] = new Button(width/2 + 220, height - 40, "Miner",3);
-     buttons[4] = new Button(width/2 + 270, height - 40, "Archer",4);
-     buttons[5] = new Button(width/2 + 320, height - 40, "Giant",5);
+     buttons[2] = new Button(width/2 + 170, height - 40, "Miner",2);
+     buttons[3] = new Button(width/2 + 220, height - 40, "Archer",3);
+     buttons[4] = new Button(width/2 + 270, height - 40, "Giant",4);
      
      for(Button item: buttons){
        item.display();
      }
      //display currency
+     /*
      if(millis() - start > 1000){
        currency += rate; // increased rate for testing
        start = millis();
+     }
+     */
+     if(frameCount % 60 == 0){
+       currency += rate;
      }
      noFill();
      rect(width/2 - 70, height - 58,100, 25);
