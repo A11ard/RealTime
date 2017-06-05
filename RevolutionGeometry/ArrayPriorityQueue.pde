@@ -78,7 +78,7 @@ class ArrayPriorityQueue {
   Unit removeMinH(Unit firstTarget){//find the unit w the lowest life and is within strike range
    //firstTarget is the initial "target" in wizard's attack method
      
-     if(_priorityQ.size() == 0){
+     if(_priorityQ.isEmpty()){
        return null; 
      }
      else{
@@ -87,13 +87,13 @@ class ArrayPriorityQueue {
        int index = 0; 
        //System.out.println(_priorityQ);
        for(Unit a: _priorityQ){        
-          if( firstTarget.position.dist(a.position) < 100 && a.life < minLife){ //if within lightning strike range and has a lower life than current lowest life
+          if( firstTarget.position.dist(a.position) < 0 && a.life < minLife){ //if within lightning strike range and has a lower life than current lowest life
             minLife = a.life; 
             target = a; 
             index = _priorityQ.indexOf(a); 
           }
        }
-       System.out.println(index);
+       //System.out.println(index);
        return _priorityQ.remove(index); 
      }
    }

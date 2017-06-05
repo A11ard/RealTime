@@ -8,7 +8,8 @@ static class AI{
     int armyDifference = armyDifference(playerTeamStrength, computerTeamStrength);
     
     if((armyDifference - economyDifference * 20 < 0) && armyDifference < 0){//more $, less troops
-      int[] output = {0, chooseUnitToTrain(currency)};
+      //int[] output = {0, chooseUnitToTrain(currency)};
+      int[] output = {0,2};
       return output;
     }
     else if(economyDifference < 0 && (armyDifference - economyDifference * 20 < 0)){ //train miner

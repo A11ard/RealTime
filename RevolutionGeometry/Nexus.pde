@@ -18,7 +18,7 @@ class Nexus extends Unit{
     return 10; 
   }
   void attack(Unit target){
-    System.out.println("am i attacking?");
+   //System.out.println("am i attacking?");
    return;
   }
   
