@@ -1,7 +1,9 @@
 ArrayList<Unit> playerTeam; //Arraylist of player units
 ArrayPriorityQueue playerQueue; //PriorityQueue for player units before inserting into playerTeam
 ArrayList<Unit> computerTeam; //Arraylist of enemy units
+ArrayPriorityQueue computerQueue; // PriorityQueue for computer units before inserting into computerTeam
 int computerCurrency; //Computer currency
+int time; //time counter for giving computer currency
 Graveyard playerGraveyard; //player graveyard, where killed units are sent
 Graveyard computerGraveyard; //comptuer graveyard, where killed computer units are sent
 Menu menu; //defines the menu 
@@ -18,6 +20,7 @@ void setup() {
   playerGraveyard = new Graveyard(); 
   computerGraveyard = new Graveyard(); 
   playerQueue = new ArrayPriorityQueue();
+  computerQueue = new ArrayPriorityQueue();
   menu = new Menu(); 
   
   //spawn Miner
@@ -81,7 +84,39 @@ void draw() {
     playerQueue.add(new Giant(true));
     menu.changeCurrency(Giant.COST);
     doOnce = true;
-  }   
+  }
+  
+  //computer action
+  int numComputerMiner = 0;
+    for (Unit unit: computerTeam){
+      if (unit.identifier() == 4){
+        numComputerMiner ++; 
+      }
+    }
+  if(millis() - time > 1000){
+       computerCurrency += numComputerMiner * 2 + 10; // increased rate for testing
+       time = millis();
+  }
+  if(computerQueue.isEmpty()){
+    int[] AIChoice = AI.choose(playerTeam, computerTeam, computerCurrency);
+    if(AIChoice[0] == 0){
+      if(AIChoice[1] == 0){
+        computerQueue.add(new Swordsmen(false));
+      }
+      if(AIChoice[1] == 1){
+        computerQueue.add(new Archer(false));
+      }
+      if(AIChoice[1] == 2){
+        computerQueue.add(new Wizard(false));
+      }
+      if(AIChoice[1] == 4){
+        computerQueue.add(new Miner(false));
+      }
+      if(AIChoice[1] == 5){
+        computerQueue.add(new Giant(false));
+      }
+    }
+  }
   
   //ADDING UNITS TO THE FIELD BASED OFF OF TRAINING TIME
   if(!playerQueue.isEmpty()){
@@ -91,6 +126,16 @@ void draw() {
     }
     else{
       playerTeam.add(removedThing);
+    }
+  }
+  
+  if(!computerQueue.isEmpty()){
+    Unit removedThing = computerQueue.removeMin();
+    if(removedThing == null){
+      computerQueue.changeTime();
+    }
+    else{
+      computerTeam.add(removedThing);
     }
   }
   

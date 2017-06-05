@@ -7,15 +7,15 @@ static class AI{
     int economyDifference = minerDifference(playerTeam,computerTeam);
     int armyDifference = armyDifference(playerTeamStrength, computerTeamStrength);
     
-    if((armyDifference - economyDifference * 20 > 0) && armyDifference < 0){//more $, less troops
+    if((armyDifference - economyDifference * 20 < 0) && armyDifference < 0){//more $, less troops
       int[] output = {0, chooseUnitToTrain(currency)};
       return output;
     }
-    else if(economyDifference < 0 && (armyDifference - economyDifference * 20 < 0)){
+    else if(economyDifference < 0 && (armyDifference - economyDifference * 20 < 0)){ //train miner
       int[] output = {0,4};
       return output;
     }
-    else{
+    else{ //do nothing and save up
       int[] output = {1};
       return output;
     }
@@ -41,24 +41,21 @@ static class AI{
   }
   
   /************************
-  Determine if a unit or a miner should be built
-  
-  Evaluate difference in player's and computer's army strength, train more units if player has
-  higher strength, else train miners.
+  Returns the difference in the strength of armies
   
   Args:
   playerTeam (ArrayList<Unit>): player team roster
   computerTeam (ArrayList<Unit>): computer team roster
   
   Returns:
-  boolean: true if a unit should be trained, false if a miner should be trained.
+  int: positive if computerTeam has the stronger army, negative if playerTeam has the stronger army.
   **************************/
   static int armyDifference(int playerTeamStrength, int computerTeamStrength){
      return computerTeamStrength - playerTeamStrength;
   }
   
   /**********************
-  Calculate unit strength
+  Calculate unit strength of a team
   
   strength:
     swordsmen:5
@@ -110,27 +107,4 @@ static class AI{
     }
     return (numComputerMiner - numPlayerMiner);
   }
-  
-  
-  /***********************
-   Decide whether to save up money or train units
-   
-   If the computer have army strength worth at least 200 more and a better economy than the player, start saving
-   If the computer have 
-   ***********************/
-   /*
-  static int choose(ArrayList<Unit> playerTeam, ArrayList<Unit> computerTeam){
-    int playerUnitStrength = unitStrength(playerTeam);
-    int computerUnitStrength = unitStrength(computerTeam);
-    
-    if ((playerUnitStrength + 200 < computerUnitStrength) && (moreMiner(playerTeam,computerTeam))){
-      return 0; //save up
-    }
-    else if ((playerUnitStrength < computerUnitStrength)){
-      return 1; //train miner
-    }
-    else {
-      return 2; //train troops
-    }  
-  }*/
 }

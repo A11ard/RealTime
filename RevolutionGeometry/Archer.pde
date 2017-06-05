@@ -28,6 +28,6 @@ class Archer extends Unit{
     else{
       fill(255,0,0);  
     }
-    ellipse(position.x, position.y,5,5);
+    ellipse(position.x, position.y,13,13);
   }
 }
