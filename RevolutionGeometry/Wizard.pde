@@ -58,9 +58,9 @@ class Wizard extends Unit{
         }
         //System.out.println(possibleTargets); 
         for(int x = 0; x < 4; x++){//take the first 4 with lowest health and strike these
-         /* if(x > possibleTargets.size()){         
-            possibleTargets.remove(target).life -= 5;
-          }*/
+         // if(x > possibleTargets.size()){         
+          //  possibleTargets.remove(target).life -= 5;
+          //}
           
           try{            
             possibleTargets.removeMinH(target).changeLife(1);                            
@@ -75,6 +75,19 @@ class Wizard extends Unit{
       }
     }
   }
-  
-  
+
+/*
+  void attack (Unit target){
+    if (target != null){
+      float distance = position.dist(target.position);
+      if(attackRange > distance){
+        ArrayPriorityQueue possibleTargets = new ArrayPriorityQueue();
+        if (team){
+          
+        }
+        else{
+          
+        }
+      }
+ */ 
 }

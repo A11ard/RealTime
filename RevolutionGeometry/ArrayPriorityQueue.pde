@@ -62,9 +62,10 @@ class ArrayPriorityQueue {
       }
     return null;
   }
-
+  
+/*
 //REMOVEMIN FOR TRAINING HEALTH: used by wizard to select attack range: enemies of lowest life gets priority
-  /*Unit removeMinH() {
+  Unit removeMinH() {
     for (int i = 0; i < _priorityQ.size(); i++) {
       if ((int)_priorityQ.get(i).getLife() == peekMinH()) {
         Unit removedUnit = _priorityQ.get(i);
@@ -73,42 +74,36 @@ class ArrayPriorityQueue {
       }
     }
     return null;
-  }*/
-  
-  Unit removeMinH(Unit firstTarget){//find the unit w the lowest life and is within strike range
-   //firstTarget is the initial "target" in wizard's attack method
-     
-     if(_priorityQ.isEmpty()){
-       return null; 
-     }
-     else{
-       Unit target = null;  
-       float minLife = 99999;//represents the lowest life 
-       int index = 0; 
-       //System.out.println(_priorityQ);
-       for(Unit a: _priorityQ){        
-          if( firstTarget.position.dist(a.position) < 0 && a.life < minLife){ //if within lightning strike range and has a lower life than current lowest life
-            minLife = a.life; 
-            target = a; 
-            index = _priorityQ.indexOf(a); 
-          }
-       }
-       //System.out.println(index);
-       return _priorityQ.remove(index); 
-     }
-   }
+  }
+  */
    
    void copyArr(ArrayList<Unit> a){
      for(int x = 0; x < a.size(); x++){
        _priorityQ.add(a.get(x)); 
      }
    }
-    
- 
-  
-  
+     
   public String toString(){
     return _priorityQ.toString();
+  }
+  
+  Unit removeMinH(Unit firstTarget){
+    if(_priorityQ.isEmpty()){
+      return null;
+    }
+    Unit target = null;
+    float minLife = 99999;
+    int indexOfTarget = 0;
+    for (int index = 0; index < _priorityQ.size(); index ++){
+      Unit unit = _priorityQ.get(index);
+      float distance = firstTarget.position.dist(unit.position);
+      if(distance < 100 && unit.life < minLife){
+        minLife = unit.life;
+        target = unit;
+        indexOfTarget = index;
+      }
+    }
+    return _priorityQ.remove(indexOfTarget);   
   }
   
 }
