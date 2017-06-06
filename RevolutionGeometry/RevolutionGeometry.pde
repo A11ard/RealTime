@@ -1,8 +1,5 @@
 ArrayList<Unit> playerTeam; //Arraylist of player units
 ArrayPriorityQueue playerQueue; //PriorityQueue for player units before inserting into playerTeam
-ArrayList<Unit> computerTeam; //Arraylist of enemy units
-ArrayPriorityQueue computerQueue; // PriorityQueue for computer units before inserting into computerTeam
-int computerCurrency; //Computer currency
 int time; //time counter for giving computer currency
 Graveyard playerGraveyard; //player graveyard, where killed units are sent
 Graveyard computerGraveyard; //comptuer graveyard, where killed computer units are sent
@@ -16,6 +13,10 @@ PImage enemyCastleImg;
 PImage skyImg; 
 PImage boardImg;
 //PImage pathImg;
+ArrayList<Unit> computerTeam; //Arraylist of enemy units
+ArrayPriorityQueue computerQueue; // PriorityQueue for computer units before inserting into computerTeam
+int computerCurrency; //Computer currency
+int lastComputerUnitTrained; //keep track of the most recently trained unit to avoid giant spamming
 
 void setup() {
   playerTeam = new ArrayList<Unit>();
@@ -25,6 +26,7 @@ void setup() {
   playerQueue = new ArrayPriorityQueue();
   computerQueue = new ArrayPriorityQueue();
   menu = new Menu(); 
+  lastComputerUnitTrained = -1;
   
   //spawn Miner
   miner = new Miner(true);
@@ -102,7 +104,7 @@ void draw() {
        time = millis();
   }
   if(computerQueue.isEmpty()){
-    int[] AIChoice = AI.choose(playerTeam, computerTeam, computerCurrency);
+    int[] AIChoice = AI.choose(playerTeam, computerTeam, computerCurrency, lastComputerUnitTrained);
     if(AIChoice[0] == 0){
       if(AIChoice[1] == 0){
         computerQueue.add(new Swordsmen(false));
@@ -119,6 +121,7 @@ void draw() {
       if(AIChoice[1] == 5){
         computerQueue.add(new Giant(false));
       }
+      lastComputerUnitTrained = AIChoice[1];
     }
   }
   

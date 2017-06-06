@@ -1,6 +1,6 @@
 static class AI{
   
-  static int[] choose(ArrayList<Unit> playerTeam, ArrayList<Unit> computerTeam, int currency){
+  static int[] choose(ArrayList<Unit> playerTeam, ArrayList<Unit> computerTeam, int currency, int lastComputerUnitTrained){
     //calculate all relevant statistics
     int playerTeamStrength = unitStrength(playerTeam);
     int computerTeamStrength = unitStrength(computerTeam);
@@ -8,8 +8,8 @@ static class AI{
     int armyDifference = armyDifference(playerTeamStrength, computerTeamStrength);
     
     if((armyDifference - economyDifference * 20 < 0) && armyDifference < 0){//more $, less troops
-      //int[] output = {0, chooseUnitToTrain(currency)};
-      int[] output = {0,2}; //wizard debug code, forces AI to only train wizards if it were to train units
+      int[] output = {0, chooseUnitToTrain(currency, lastComputerUnitTrained)};
+      //int[] output = {0,2}; //wizard debug code, forces AI to only train wizards if it were to train units
       return output;
     }
     else if(economyDifference < 0 && (armyDifference - economyDifference * 20 < 0)){ //train miner
@@ -23,17 +23,17 @@ static class AI{
 
   }
   
-  static int chooseUnitToTrain(int currency){
-    if(currency > 100){
+  static int chooseUnitToTrain(int currency, int lastComputerUnitTrained){
+    if(currency > 100 && lastComputerUnitTrained != 5){
       return 5; //giant.identifier() result
     }
-    else if(currency > 50){
+    else if(currency > 50 && lastComputerUnitTrained != 2){
       return 2;//wizard.identifier() result
     }
-    else if(currency > 15){
+    else if(currency > 15 && lastComputerUnitTrained != 1){
       return 1;//archer.identifier()
     }
-    else if(currency > 10){
+    else if(currency > 10 && lastComputerUnitTrained != 0){
       return 0;//swordsmen.identifier()
     }
     else {
