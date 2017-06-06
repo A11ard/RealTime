@@ -52,6 +52,7 @@ void draw() {
   background(255);
   //fill(255);
   menu.loadMenu();
+  menu.cardPressed();
   //System.out.print(mouseX + ", " + mouseY); 
   image(playerCastleImg, 0, height/2,170,170);
   image(enemyCastleImg, width - 170, height/2, 170,170);
@@ -90,6 +91,7 @@ void draw() {
     menu.changeCurrency(Giant.COST);
     doOnce = true;
   }
+  
   
   
   //computer action
@@ -153,7 +155,7 @@ void draw() {
     unit.drawUnit();
     unit.updateHealth();
     unit.attack(target);    
-    unit.death(playerTeam, unit);
+     unit.death(playerTeam, unit);
     //System.out.println(unit.getTrainingTime());
   }
   //MAIN COMPUTERTEAM ACTIONS

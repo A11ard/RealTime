@@ -103,19 +103,20 @@ class Menu{
     return -1;
   }
   
-  //Stuff that im going to put in driver
-  for(Deck item: deckList){
-  if (menu.cardbuttonPressed() == 0 && doOnce == false && menu.getCurrency() >= 10) {
-    deckCards.remove()
-    //System.out.println(playerQueue);
-    menu.changeCurrency(Swordsmen.COST);
+  void cardPressed(){
+    for(int i = 0; i < deckCards.size(); i++){
+    if (menu.cardbuttonPressed() == 0 && doOnce == false && menu.getCurrency() >= deckCards[i].getCardCost()) {
+    //remove card and enqueue
+    deckList.enqueue(deckCards.remove(i));
+    //activate effect
+    //dequeue and reset back into the field
+    deckCards.add(deckList.dequeue());
+    //change currency
+    menu.changeCurrency(deckCards[i].getCardCost());
     doOnce = true;
+    }
   }
   }
-  
-  
-  
-  
   
   int getCurrency(){
     return currency;
