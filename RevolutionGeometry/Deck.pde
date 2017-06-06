@@ -5,8 +5,6 @@ class Deck<T> {
   int cardCost;
   int cardIndex;
 
-  ArrayList<T> cards = new ArrayList<T>();
-
   Deck(int cost, String name, int pos_x, int pos_y, int _index) {
     cardCost = cost;
     cardName = name;
@@ -16,7 +14,7 @@ class Deck<T> {
   }
 
   void display() {
-    rect(posx, posy, 20, 40);
+    rect(posx, posy, 20, 20);
     text(cardName, posx + 20, posy - 20);
   }
 
@@ -30,6 +28,10 @@ class Deck<T> {
 
   int getCardIndex() {
     return cardIndex;
+  }
+  
+  int getCardCost(){
+    return cardCost;
   }
   
   //Abilities
