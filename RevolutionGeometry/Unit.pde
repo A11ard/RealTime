@@ -70,9 +70,9 @@ void attack(Unit target){
   }
 }
 
-void death(ArrayList team, Unit unit){
+void death(ArrayList<Unit> team, Unit unit, Graveyard graveyard){
   if(unit.getLife() <= 0){
-    team.remove(team.indexOf(unit));
+    graveyard.enqueue(team.remove(team.indexOf(unit)));
   }
 }
 

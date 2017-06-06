@@ -9,15 +9,19 @@ class Graveyard{
       _stack = new ArrayList<Unit> (); 
     }
     
-    public Unit dequeue(){//remove the unit that was last put in 
-      return _stack.remove(_stack.size()); 
+    Unit dequeue(){//remove the unit that was last put in 
+      return _stack.remove(_stack.size()-1); 
     }
     
-    public void enqueue(Unit a){//put a unit into the stack 
+    void enqueue(Unit a){//put a unit into the stack 
       _stack.add(a); 
     }
     
-    public int size(){
+    Unit peek(){//see the Unit that was last put in 
+      return _stack.remove(_stack.size()-1); 
+    }
+      
+    int size(){
       return _stack.size(); 
     }
     
