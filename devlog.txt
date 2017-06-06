@@ -106,3 +106,7 @@ Swordsmen capable of attack, move, and draw a visual representation of itself.
 - Changed attackpoint range for castle
 - changed miner costs, now costs more after each upgrade
 - Commander does less damage per each second(makes charged attacks more efficient)
+
+2017-06-05 Allard Peng
+-Changed wizard's shape --> it is now a triangle which resembles a wizard's hat
+-Added the sky image and updated the battleground color
