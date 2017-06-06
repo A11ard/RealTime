@@ -49,16 +49,16 @@ void setup() {
 }
 
 void draw() {
-  if (computerTeam.get(0).identifier() != 10){
-    //player wins
+  if (computerTeam.isEmpty() || computerTeam.get(0).identifier() != 10){
+    win(true);
   }
-  if (playerTeam.get(0).identifier() != 10){
-    //computer wins 
+  if (playerTeam.isEmpty() || playerTeam.get(0).identifier() != 10){
+    win(false); 
   }
   background(255);
   //fill(255);
   menu.loadMenu();
-  menu.cardPressed();
+  //menu.cardPressed();
   //System.out.print(mouseX + ", " + mouseY); 
   image(playerCastleImg, 0, height/2,170,170);
   image(enemyCastleImg, width - 170, height/2, 170,170);
@@ -220,5 +220,15 @@ void keyReleased() {
   if(key == 'j'){
     isAttack = false;
     attackCharge = 3;
+  }
+}
+
+void win(boolean team){
+  noLoop();
+  if(team){
+    print("you win");
+  }
+  else {
+    print("you lost");
   }
 }
