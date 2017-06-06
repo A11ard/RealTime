@@ -14,7 +14,7 @@ Miner miner; //spawn Miner
 PImage playerCastleImg; 
 PImage enemyCastleImg;
 PImage skyImg; 
-//PImage boardImg;
+PImage boardImg;
 //PImage pathImg;
 
 void setup() {
@@ -41,7 +41,7 @@ void setup() {
   //Load images
   playerCastleImg = requestImage("playerCastle.png");
   enemyCastleImg = requestImage("enemyCastle.png");
-  skyImg = requestImage("bluesky.png");
+  //skyImg = requestImage("bluesky.png");
   //boardImg = loadImage("boardMenu.jpg");
   //pathImg = loadImage("dirtPath.jpg");
 }
@@ -53,7 +53,7 @@ void draw() {
   //System.out.print(mouseX + ", " + mouseY); 
   image(playerCastleImg, 0, height/2,170,170);
   image(enemyCastleImg, width - 170, height/2, 170,170);
-  image(skyImg, 0, 0, width, height/2);
+  //image(skyImg, 0, 0, width, height/2);
 
   //ADD UNITS TO QUEUE ON BUTTON PRESS
   if (menu.buttonPressed() == 0 && doOnce == false && menu.getCurrency() >= Swordsmen.COST ) {
