@@ -103,20 +103,22 @@ class Menu{
     return -1;
   }
   
+  /*
   void cardPressed(){
     for(int i = 0; i < deckCards.size(); i++){
-    if (menu.cardbuttonPressed() == 0 && doOnce == false && menu.getCurrency() >= deckCards[i].getCardCost()) {
-    //remove card and enqueue
-    deckList.enqueue(deckCards.remove(i));
-    //activate effect
-    //dequeue and reset back into the field
-    deckCards.add(deckList.dequeue());
-    //change currency
-    menu.changeCurrency(deckCards[i].getCardCost());
-    doOnce = true;
+      if (menu.cardbuttonPressed() == 0 && doOnce == false && menu.getCurrency() >= deckCards[i].getCardCost()) {
+      //remove card and enqueue
+      deckList.enqueue(deckCards.remove(i));
+      //activate effect
+      //dequeue and reset back into the field
+      deckCards.add(deckList.dequeue());
+      //change currency
+      menu.changeCurrency(deckCards[i].getCardCost());
+      doOnce = true;
+      }
     }
   }
-  }
+  */
   
   int getCurrency(){
     return currency;

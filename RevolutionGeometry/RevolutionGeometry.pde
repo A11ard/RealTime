@@ -49,6 +49,12 @@ void setup() {
 }
 
 void draw() {
+  if (computerTeam.get(0).identifier() != 10){
+    //player wins
+  }
+  if (playerTeam.get(0).identifier() != 10){
+    //computer wins 
+  }
   background(255);
   //fill(255);
   menu.loadMenu();
@@ -155,7 +161,7 @@ void draw() {
     unit.drawUnit();
     unit.updateHealth();
     unit.attack(target);    
-     unit.death(playerTeam, unit);
+     unit.death(playerTeam, unit, playerGraveyard);
     //System.out.println(unit.getTrainingTime());
   }
   //MAIN COMPUTERTEAM ACTIONS
@@ -165,10 +171,8 @@ void draw() {
     unit.drawUnit();
     unit.updateHealth();
     unit.attack(target);
-    unit.death(computerTeam, unit);
+    unit.death(computerTeam, unit, computerGraveyard);
   }
-  
-  AI.choose(playerTeam, computerTeam, computerCurrency);
 }
 
 void mouseReleased() {
