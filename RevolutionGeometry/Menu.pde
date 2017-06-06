@@ -2,6 +2,7 @@ class Menu{
  
   Button[] buttons = new Button[5]; //Buttons in the Menu
   ALQueue<Deck> deckList = new ALQueue<Deck>();
+  ArrayList<Deck> cards = new ArrayList<Deck>();
   int currency; //Game currency for buying units
   int rate; //Rate of how currency increases
   //int start; //Used to calculate currency based off of time
@@ -47,6 +48,10 @@ class Menu{
      deckList.enqueue(new Deck(10, "NinethCard",width/2- 80, height - 40, 0));
      deckList.enqueue(new Deck(20, "TenthCard", width/2- 90, height - 50, 0));
      
+     
+     cards.add(deckList.dequeue());
+     cards.add(deckList.dequeue());
+     cards.add(deckList.dequeue());
      //display currency
      /*
      if(millis() - start > 1000){
