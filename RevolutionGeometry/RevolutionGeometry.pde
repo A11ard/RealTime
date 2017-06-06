@@ -31,14 +31,14 @@ void setup() {
   //spawn Miner
   miner = new Miner(true);
 
-  //Spawn Your Commander
-  playerTeam.add(new Commander(true));
-  attackCharge = 3; //sets attack charge
-  
   //Spawn Nexuses
   playerTeam.add(new Nexus(true));
   computerTeam.add(new Nexus(false));
   size(1250, 500);
+  
+  //Spawn Your Commander
+  playerTeam.add(new Commander(true));
+  attackCharge = 3; //sets attack charge
   
   //Load images
   playerCastleImg = requestImage("playerCastle.png");
