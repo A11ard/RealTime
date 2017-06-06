@@ -19,9 +19,11 @@ class Menu{
    void loadMenu(){
      //upper boundary
      rect(0,height/2,width,0);
+
      //lower menu
      fill(211,211,211);
      rect(0,height - menuH,width,menuH);
+     //image(boardImg,0, height - 80, width, 80);
      //Buttons
      buttons[0] = new Button(width/2 + 70, height - 40, "Swords", 0); 
      buttons[1] = new Button(width/2 + 120, height - 40, "Wizard",1);

@@ -13,7 +13,9 @@ int attackCharge; //intializes attack charge
 Miner miner; //spawn Miner
 PImage playerCastleImg; 
 PImage enemyCastleImg;
-PImage sky; 
+PImage skyImg; 
+//PImage boardImg;
+//PImage pathImg;
 
 void setup() {
   playerTeam = new ArrayList<Unit>();
@@ -37,25 +39,26 @@ void setup() {
   size(1250, 500);
   
   //Load images
-  playerCastleImg = loadImage("playerCastle.png");
-  enemyCastleImg = loadImage("enemyCastle.png");
-  sky = loadImage("sky.PNG"); 
+  playerCastleImg = requestImage("playerCastle.png");
+  enemyCastleImg = requestImage("enemyCastle.png");
+  skyImg = requestImage("bluesky.png");
+  //boardImg = loadImage("boardMenu.jpg");
+  //pathImg = loadImage("dirtPath.jpg");
 }
 
 void draw() {
-  background(#0B640F);
+  background(255);
   //fill(255);
   menu.loadMenu();
   //System.out.print(mouseX + ", " + mouseY); 
   image(playerCastleImg, 0, height/2,170,170);
   image(enemyCastleImg, width - 170, height/2, 170,170);
-  image(sky, 0, 0, width, height/2);
-  
+  image(skyImg, 0, 0, width, height/2);
 
   //ADD UNITS TO QUEUE ON BUTTON PRESS
   if (menu.buttonPressed() == 0 && doOnce == false && menu.getCurrency() >= Swordsmen.COST ) {
     playerQueue.add(new Swordsmen(true));
-    System.out.println(playerQueue);
+    //System.out.println(playerQueue);
     menu.changeCurrency(Swordsmen.COST);
     doOnce = true;
   }
@@ -148,7 +151,7 @@ void draw() {
     unit.updateHealth();
     unit.attack(target);    
     unit.death(playerTeam, unit);
-    System.out.println(unit.getTrainingTime());
+    //System.out.println(unit.getTrainingTime());
   }
   //MAIN COMPUTERTEAM ACTIONS
   for (int i = 0; i < computerTeam.size(); i++) {
