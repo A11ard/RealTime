@@ -13,6 +13,7 @@ int attackCharge; //intializes attack charge
 Miner miner; //spawn Miner
 PImage playerCastleImg; 
 PImage enemyCastleImg;
+PImage sky; 
 
 void setup() {
   playerTeam = new ArrayList<Unit>();
@@ -38,15 +39,18 @@ void setup() {
   //Load images
   playerCastleImg = loadImage("playerCastle.png");
   enemyCastleImg = loadImage("enemyCastle.png");
+  sky = loadImage("sky.PNG"); 
 }
 
 void draw() {
-  background(255);
-  fill(255);
+  background(#0B640F);
+  //fill(255);
   menu.loadMenu();
   //System.out.print(mouseX + ", " + mouseY); 
   image(playerCastleImg, 0, height/2,170,170);
   image(enemyCastleImg, width - 170, height/2, 170,170);
+  image(sky, 0, 0, width, height/2);
+  
 
   //ADD UNITS TO QUEUE ON BUTTON PRESS
   if (menu.buttonPressed() == 0 && doOnce == false && menu.getCurrency() >= Swordsmen.COST ) {

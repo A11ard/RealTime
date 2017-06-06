@@ -30,7 +30,8 @@ class Wizard extends Unit{
   void drawUnit(){
     stroke(0);
     fill(255);
-    rect(position.x+5,position.y,10,10);
+    //rect(position.x+5,position.y,10,10);
+    triangle(position.x+5, position.y, position.x+13, position.y-20, position.x+21, position.y); 
   }
   /*
   void updateHealth(){
