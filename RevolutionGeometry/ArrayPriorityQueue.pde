@@ -87,6 +87,7 @@ class ArrayPriorityQueue {
     return _priorityQ.toString();
   }
   
+  /*
   Unit removeMinH(Unit firstTarget){
     if(_priorityQ.isEmpty()){
       return null;
@@ -104,6 +105,23 @@ class ArrayPriorityQueue {
       }
     }
     return _priorityQ.remove(indexOfTarget);   
+  }  */
+  
+  Unit removeMinH(){
+    if(_priorityQ.isEmpty()){
+      return null;
+    }
+    float minLife = 99999;
+    int indexOfRemoval = 0;
+    for (int index = 0; index < _priorityQ.size(); index ++){
+      Unit unit = _priorityQ.get(index);
+      //float distance = firstTarget.position.dist(unit.position);
+      if(unit.life < minLife){//find target with lowest life--> get the index and save that in indexOfRemoval
+        minLife = unit.life;
+        indexOfRemoval = index;
+      }
+    }
+    return _priorityQ.remove(indexOfRemoval);   
   }
   
 }
