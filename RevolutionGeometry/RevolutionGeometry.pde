@@ -95,25 +95,25 @@ void draw() {
   
   if (menu.buttonPressed() == 5 && doOnce == false && !playerGraveyard.isEmpty()){
     int graveyardCost = playerGraveyard.peek().getCost() * 3 / 4;
-    if( menu.getCurrency() >= graveyardCost);
-    
-    int unitID = playerGraveyard.dequeue().identifier();
-    Unit unit = null;
-    if (unitID == 0){
-      unit = new Swordsmen(true);
+    if( menu.getCurrency() >= graveyardCost){    
+      int unitID = playerGraveyard.dequeue().identifier();
+      Unit unit = null;
+      if (unitID == 0){
+        unit = new Swordsmen(true);
+      }
+      if (unitID == 1){
+        unit = new Archer(true);
+      }
+      if (unitID == 2){
+        unit = new Archer(true);
+      }
+      if (unitID == 5){
+        unit = new Giant(true);
+      }
+      playerTeam.add(unit);
+      menu.changeCurrency(graveyardCost);
+      doOnce = true;
     }
-    if (unitID == 1){
-      unit = new Archer(true);
-    }
-    if (unitID == 2){
-      unit = new Archer(true);
-    }
-    if (unitID == 5){
-      unit = new Giant(true);
-    }
-    playerTeam.add(unit);
-    menu.changeCurrency(graveyardCost);
-    doOnce = true;
   }
   
   
