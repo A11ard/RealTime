@@ -166,7 +166,7 @@ Swordsmen capable of attack, move, and draw a visual representation of itself.
   - Nexus has health number on top
 
 2017-06-06,07 Leo Liu
-- With Allan created Revive button
+- With Allard created Revive button
 - Created End game mechanics
 - Balancing.....changed wizard graphics
 
