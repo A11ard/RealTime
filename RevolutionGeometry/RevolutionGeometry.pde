@@ -58,7 +58,7 @@ void draw() {
   background(255);
   //fill(255);
   menu.loadMenu();
-  //menu.cardPressed();
+  menu.cardPressed();
   //System.out.print(mouseX + ", " + mouseY); 
   image(playerCastleImg, 0, height/2,170,170);
   image(enemyCastleImg, width - 170, height/2, 170,170);

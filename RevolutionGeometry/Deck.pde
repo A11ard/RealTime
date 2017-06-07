@@ -5,18 +5,21 @@ class Deck<T> {
   int cardCost;
   int cardIndex;
 
-  Deck(int cost, String name, int pos_x, int pos_y, int _index) {
+  Deck(int cost, String name, int _index) {
     cardCost = cost;
     cardName = name;
-    posx = pos_x;
-    posy = pos_y;
     cardIndex = _index;
   }
-
-  void display() {
-    rect(posx, posy, 20, 20);
-    text(cardName, posx + 20, posy - 20);
+  
+    void display(int x, int y) {
+      posx = x;
+      posy = y;
+      fill(255,0,0);
+      rect(posx, posy, 20, 20);
+      fill(0);
+      text(cardName, posx + 20, posy);
   }
+
 
   int x_pos() {
     return posx;
@@ -32,6 +35,24 @@ class Deck<T> {
   
   int getCardCost(){
     return cardCost;
+  }
+  
+  void use(){
+    if(cardIndex == 0){
+      System.out.println("heal");
+    }
+    if(cardIndex == 1){
+      System.out.println("revive");
+    }
+    if(cardIndex == 2){
+      System.out.println("fireball");
+    }
+    if(cardIndex == 3){
+      System.out.println("Increase stash");
+    }
+    if(cardIndex == 4){
+      System.out.println("Commander strength");
+    }
   }
   
   //Abilities

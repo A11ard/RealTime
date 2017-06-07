@@ -6,7 +6,7 @@ class Commander extends Unit{
       100 is the menuH, height/2 is the maximum height the units will spawn, 20 is so it won't touch menu
       super(int _life, float _speed, int _damage, int _trainingTime, boolean _team, int _y)
     ******************/
-    super(200,3.0,1,2,_team, (int)random(height - 80 - (height/2) - 20));
+    super(500,3.0,5,2,_team, (int)random(height - 80 - (height/2) - 20));
     if(_team == true){
       position = new PVector(120, height/2 + y); //Spawns unit on the player field
     }
