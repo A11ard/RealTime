@@ -23,11 +23,13 @@ Cool Stuff Learned (conceptual and/or practical)--------------------------------
 - Creating issues on github was very beneficial, reminded us on issues we still needed to solve
 - Seperating tasks to avoid merge conflicts was beneficial
 - Learned that in game development, code efficiency is very important(lag is a huge problem, prohibited cool graphics for our game)
-
+- Communication is so important, and we did that pretty well
 
 Mid-development Design Changes-------------------------------------------- 
 
-Left out some extraneous features such as scoring, multiple commanders, commanders switching units, controlling units on the field with keywords like "retreat", "advance", "defend". These took too much time.
+- Left out some extraneous features such as scoring, multiple commanders, commanders switching units, controlling units on the field with keywords like "retreat", "advance", "defend". These took too much time.
+
+- Changed the attack of the Wizard, but still implementing priorityQueue as planned, original was too tasking. 
 
 Lessons Learned--------------------------------------------
 
