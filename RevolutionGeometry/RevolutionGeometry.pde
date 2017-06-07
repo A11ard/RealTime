@@ -8,6 +8,8 @@ boolean doOnce; //doOnce, determines if you a button has been pressed once
 boolean isUp, isDown, isLeft, isRight, isAttack;  //boolean values for determining where the Commander unit is gonig
 int attackCharge; //intializes attack charge
 Miner miner; //spawn Miner
+Nexus nexus;
+Commander commander;
 PImage playerCastleImg; 
 PImage enemyCastleImg;
 PImage skyImg; 
@@ -30,14 +32,16 @@ void setup() {
   
   //spawn Miner
   miner = new Miner(true);
+  nexus = new Nexus(true);
+  commander = new Commander(true);
 
   //Spawn Nexuses
-  playerTeam.add(new Nexus(true));
+  playerTeam.add(nexus);
   computerTeam.add(new Nexus(false));
   size(1250, 500);
   
   //Spawn Your Commander
-  playerTeam.add(new Commander(true));
+  playerTeam.add(commander);
   attackCharge = 3; //sets attack charge
   
   //Load images
@@ -46,6 +50,7 @@ void setup() {
   //skyImg = requestImage("bluesky.png");
   //boardImg = loadImage("boardMenu.jpg");
   //pathImg = loadImage("dirtPath.jpg");
+  
 }
 
 void draw() {
@@ -76,7 +81,7 @@ void draw() {
   if (menu.buttonPressed() == 2 && doOnce == false && menu.getCurrency() >= miner.getCost()) {
     playerQueue.add(new Miner(true));
     menu.changeCurrency(miner.getCost());
-    miner.changeCost(20);
+    miner.changeCost(50);
     menu.changeRate(2);
     doOnce = true;
   }  
@@ -158,6 +163,7 @@ void draw() {
     unit.attack(target);    
     unit.death(playerTeam, unit, playerGraveyard);
     //System.out.println(unit.getTrainingTime());
+    
   }
   //MAIN COMPUTERTEAM ACTIONS
   for (int i = 0; i < computerTeam.size(); i++) {
@@ -175,12 +181,12 @@ void draw() {
   if (playerTeam.isEmpty() || playerTeam.get(0).identifier() != 10){
     win(false); 
   }
+  
 }
 
 void mouseReleased() {
   doOnce = false;
 }
-
 
 /******************************
   For Commander Unit
@@ -224,6 +230,44 @@ void keyReleased() {
     attackCharge = 3;
   }
 }
+
+
+void abilities(int value){
+    if(value == 0 && doOnce == false){
+      for(Unit item: playerTeam){
+      if(item == nexus){
+         item.healLife();
+         System.out.println("healed");
+      }
+      }
+      doOnce = true;
+    }
+    else if(value == 2 && doOnce == false){
+      menu.changeCurrency(-15);
+      System.out.println("gold");
+      doOnce = true;
+    }
+    else if(value == 3 && doOnce == false){
+      for(Unit item: playerTeam){
+      if(item == commander){
+        item.increaseDamage();
+        System.out.println("strong");
+      }
+      }
+      doOnce = true;
+    }
+    else if(value == 1 && doOnce == false){
+      for(Unit item: playerTeam){
+      if(item == commander){
+        item.increaseSpeed();
+        System.out.println("speed");
+      }
+      }
+      doOnce = true;
+    }
+  
+}
+
 
 void win(boolean team){
   PImage img;

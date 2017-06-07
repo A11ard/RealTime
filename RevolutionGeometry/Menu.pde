@@ -6,7 +6,7 @@ class Menu {
   //Deck[] deckCards = new Deck[1];
   int currency; //Game currency for buying units
   int rate; //Rate of how currency increases
-  //int start; //Used to calculate currency based off of time
+  int start; //Used to calculate currency based off of time
   int timer; //Game timer
   //castle health
   //deck + utility cards
@@ -24,16 +24,11 @@ class Menu {
 
 
     //Cards
-    deckList.enqueue(new Deck(10, "FirstCard", 0));
-    deckList.enqueue(new Deck(20, "SecondCard", 1));
-    deckList.enqueue(new Deck(10, "ThirdCard", 2));
-    deckList.enqueue(new Deck(20, "FourthCard", 3));
-    deckList.enqueue(new Deck(10, "FifthCard", 4));
-    deckList.enqueue(new Deck(20, "SixthCard", 5));
-    deckList.enqueue(new Deck(10, "SeventhCard", 6));
-    deckList.enqueue(new Deck(20, "EigthCard", 7));
-    deckList.enqueue(new Deck(10, "NinethCard", 8));
-    deckList.enqueue(new Deck(20, "TenthCard", 9));
+    deckList.enqueue(new Deck(10, "Heal", 0));
+    //deckList.enqueue(new Deck(20, "Revive", 1));
+    deckList.enqueue(new Deck(10, "Speed", 1));
+    deckList.enqueue(new Deck(0, "Gold", 2));
+    deckList.enqueue(new Deck(10, "Power", 3));
 
     //add to displayed cards
     deckCards.add(deckList.dequeue());
@@ -123,12 +118,18 @@ class Menu {
         //remove card and enqueue
         deckCards.remove((cardbuttonPressed()));
         deckList.enqueue(temp);
-        //dequeue and reset back into the field
-        deckCards.add(deckList.dequeue());
         //change currency
         menu.changeCurrency(temp.getCardCost());
+        
+        
+         
+            
         doOnce = true;
       }
+      //dequeue and reset back into the field
+      if(frameCount % 900 == 0 && deckCards.size() < 3){
+         deckCards.add(deckList.dequeue()); 
+       } 
     }
   
 

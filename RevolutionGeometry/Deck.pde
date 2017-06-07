@@ -38,21 +38,7 @@ class Deck<T> {
   }
   
   void use(){
-    if(cardIndex == 0){
-      System.out.println("heal");
-    }
-    if(cardIndex == 1){
-      System.out.println("revive");
-    }
-    if(cardIndex == 2){
-      System.out.println("fireball");
-    }
-    if(cardIndex == 3){
-      System.out.println("Increase stash");
-    }
-    if(cardIndex == 4){
-      System.out.println("Commander strength");
-    }
+      abilities(cardIndex); 
   }
   
   //Abilities

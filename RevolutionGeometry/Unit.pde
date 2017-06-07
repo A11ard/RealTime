@@ -15,6 +15,7 @@ protected float attackRange;
 int lifeinit; //Stores starting health(doesn't change)
 
 
+
 abstract void drawUnit();
 //abstract void updateHealth();
 abstract int identifier();
@@ -37,6 +38,18 @@ boolean isAlive(){
 void changeLife(int value){
   life -= value; 
 }
+
+void healLife(){
+  return;
+}
+
+void increaseDamage(){
+  return;
+}
+void increaseSpeed(){
+  return;
+}
+
 
 int getLife(){
   return life;

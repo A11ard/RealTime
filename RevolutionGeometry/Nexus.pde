@@ -29,6 +29,15 @@ class Nexus extends Unit{
     rect(position.x,position.y,10,10);
   }  
   
+  void healLife(){
+    if(life <= 900){
+      life += 100;
+    }
+    else{
+      life += lifeinit - life; 
+    }
+  }
+  
     
   void updateHealth(){
     fill(0,255,0);
