@@ -19,7 +19,7 @@ class Graveyard{
     }
     
     Unit peek(){//see the Unit that was last put in 
-      return _stack.remove(_stack.size()-1); 
+      return _stack.get(_stack.size()-1); 
     }
       
     int size(){
