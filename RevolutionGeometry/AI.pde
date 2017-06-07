@@ -9,7 +9,7 @@ static class AI{
     
     if((armyDifference - economyDifference * 20 < 0) && armyDifference < 0){//more $, less troops
       int[] output = {0, chooseUnitToTrain(currency, lastComputerUnitTrained)};
-      //int[] output = {0,2}; //wizard debug code, forces AI to only train wizards if it were to train units
+      int[] output = {0,2}; //wizard debug code, forces AI to only train wizards if it were to train units
       return output;
     }
     else if(economyDifference < 0 && (armyDifference - economyDifference * 20 < 0)){ //train miner

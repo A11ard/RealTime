@@ -10,10 +10,10 @@ class Miner extends Unit{
     ******************/
     super(100,0.8,2,2,_team,0);
     if(_team == true){
-      position = new PVector(50, height/2 + 100); //Spawns unit on the player field
+      position = new PVector(200, height/2 + 100); //Spawns unit on the player field
     }
     else{
-      position = new PVector(width - 50, height/2 + 100); //Spawns unit on the enemy field
+      position = new PVector(width - 200, height/2 + 100); //Spawns unit on the enemy field
     }
     lifeinit = life;
     attackRange = 0;
