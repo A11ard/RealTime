@@ -225,10 +225,14 @@ void keyReleased() {
 
 void win(boolean team){
   noLoop();
+  PImage img;
   if(team){
+    img = loadImage("data/victory.png");
     print("you win");
   }
   else {
+    img = loadImage("data/defeat.png");
     print("you lost");
   }
+  image(img, 300, 100, 650, 300);
 }
