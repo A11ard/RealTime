@@ -1,6 +1,6 @@
 class Menu {
 
-  Button[] buttons = new Button[5]; //Buttons in the Menu
+  Button[] buttons = new Button[6]; //Buttons in the Menu
   ALQueue<Deck> deckList = new ALQueue<Deck>();
   ArrayList<Deck> deckCards = new ArrayList<Deck>();
   //Deck[] deckCards = new Deck[1];
@@ -13,7 +13,7 @@ class Menu {
   //units on field
   Menu() {
     currency = 0; 
-    rate = 5; //increased coinage
+    rate = 5; //increased coinage 
 
     //Buttons
     buttons[0] = new Button(width/2 + 70, height - 40, "Swords", 0); 
@@ -21,6 +21,7 @@ class Menu {
     buttons[2] = new Button(width/2 + 170, height - 40, "Miner", 2);
     buttons[3] = new Button(width/2 + 220, height - 40, "Archer", 3);
     buttons[4] = new Button(width/2 + 270, height - 40, "Giant", 4);
+    buttons[5] = new Button(width/2 + 320, height - 40, "Ressurrect", 5);
 
 
     //Cards

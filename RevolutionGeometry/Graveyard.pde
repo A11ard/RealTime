@@ -10,7 +10,8 @@ class Graveyard{
     }
     
     Unit dequeue(){//remove the unit that was last put in 
-      return _stack.remove(_stack.size()-1); 
+      
+      return _stack.remove(size() - 1); 
     }
     
     void enqueue(Unit a){//put a unit into the stack 
@@ -23,6 +24,10 @@ class Graveyard{
       
     int size(){
       return _stack.size(); 
+    }
+    
+    boolean isEmpty(){
+      return size() == 0;
     }
     
 }

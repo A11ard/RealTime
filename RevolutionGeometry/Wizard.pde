@@ -17,7 +17,9 @@ class Wizard extends Unit{
     attackRange = 130;
   }
 
-
+  int getCost(){
+    return COST;
+  }
 
   int identifier(){
     return 2;

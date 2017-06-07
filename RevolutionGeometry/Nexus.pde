@@ -17,6 +17,11 @@ class Nexus extends Unit{
   int identifier(){
     return 10; 
   }
+  
+  int getCost(){
+    return 99999999;
+  }
+  
   void attack(Unit target){
    //System.out.println("am i attacking?");
    return;
