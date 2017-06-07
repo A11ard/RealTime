@@ -17,6 +17,7 @@ ArrayList<Unit> computerTeam; //Arraylist of enemy units
 ArrayPriorityQueue computerQueue; // PriorityQueue for computer units before inserting into computerTeam
 int computerCurrency; //Computer currency
 int lastComputerUnitTrained; //keep track of the most recently trained unit to avoid giant spamming
+int graveyardTimer;//timer for when we can use the REVIVE button again 
 
 void setup() {
   playerTeam = new ArrayList<Unit>();
@@ -93,29 +94,30 @@ void draw() {
     doOnce = true;
   }
   
-  if (menu.buttonPressed() == 5 && doOnce == false && !playerGraveyard.isEmpty()){
+  if (menu.buttonPressed() == 5 && doOnce == false && !playerGraveyard.isEmpty() && graveyardTimer > 100){
+    graveyardTimer = 0; 
     int graveyardCost = playerGraveyard.peek().getCost() * 3 / 4;
-    if( menu.getCurrency() >= graveyardCost);
-    
-    int unitID = playerGraveyard.dequeue().identifier();
-    Unit unit = null;
-    if (unitID == 0){
-      unit = new Swordsmen(true);
+    if( menu.getCurrency() >= graveyardCost){    
+      int unitID = playerGraveyard.dequeue().identifier();
+      Unit unit = null;
+      if (unitID == 0){
+        unit = new Swordsmen(true);
+      }
+      if (unitID == 1){
+        unit = new Archer(true);
+      }
+      if (unitID == 2){
+        unit = new Archer(true);
+      }
+      if (unitID == 5){
+        unit = new Giant(true);
+      }
+      playerTeam.add(unit);
+      menu.changeCurrency(graveyardCost);
+      doOnce = true;
     }
-    if (unitID == 1){
-      unit = new Archer(true);
-    }
-    if (unitID == 2){
-      unit = new Archer(true);
-    }
-    if (unitID == 5){
-      unit = new Giant(true);
-    }
-    playerTeam.add(unit);
-    menu.changeCurrency(graveyardCost);
-    doOnce = true;
   }
-  
+  graveyardTimer++; 
   
   
   //computer action
