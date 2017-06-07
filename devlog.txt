@@ -156,7 +156,7 @@ Swordsmen capable of attack, move, and draw a visual representation of itself.
 - Created deck class
 - Added cards into menu
 
-2017-06-07 Jeffrey Weng
+2017-06-06,07 Jeffrey Weng
 - deck finished! Special effects, displayd on the field, uses queue.
   -built in timer, cards get back onto the field after a certain amount of time has passed
   -Implemented Gold, increased commander Power, increased commander Speed, and heal(for nexus)
@@ -165,12 +165,12 @@ Swordsmen capable of attack, move, and draw a visual representation of itself.
   - Shows currency costs for each button and card
   - Nexus has health number on top
 
-2017-06-07 Leo Liu
+2017-06-06,07 Leo Liu
 - With Allan created Revive button
 - Created End game mechanics
 - Balancing.....changed wizard graphics
 
-2017-06-07 Allard Peng
+2017-06-06,07 Allard Peng
 - Fixed Wizard bug
 - Added in Revive button timer mechanism
 
