@@ -30,3 +30,4 @@ git clone git@github.com:TakingTheL/RealTime.git
 ```
 processing RevolutionGeometry.pde
 ```
+5. Press the play button!(Upper Left Corner Triangle)
