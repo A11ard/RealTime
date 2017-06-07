@@ -14,11 +14,10 @@ protected int y; //Depth
 protected float attackRange; 
 int lifeinit; //Stores starting health(doesn't change)
 
-
-
 abstract void drawUnit();
 //abstract void updateHealth();
 abstract int identifier();
+abstract int getCost();
 
 public Unit(int _life, float _speed, int _damage, int _trainingTime, boolean _team, int _y){
    life = _life;

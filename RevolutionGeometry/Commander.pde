@@ -1,5 +1,5 @@
 class Commander extends Unit{
-  static final int COST = 5;
+  static final int COST = 25;
   int start;
   Commander(boolean _team){
     /******************
@@ -16,7 +16,9 @@ class Commander extends Unit{
     attackRange = 20;
   }
 
-
+  int getCost(){
+    return COST;
+  }
 
   int identifier(){
     return 3;

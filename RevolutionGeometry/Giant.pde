@@ -1,6 +1,6 @@
 class Giant extends Unit{
   //int lifeinit;
-  static final int COST = 10;
+  static final int COST = 100;
 
   
   Giant(boolean _team){
@@ -19,7 +19,9 @@ class Giant extends Unit{
     attackRange = 15;
   }
 
-
+  int getCost(){
+    return COST;
+  }
 
   int identifier(){
     return 5;

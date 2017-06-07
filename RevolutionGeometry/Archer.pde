@@ -20,6 +20,10 @@ class Archer extends Unit{
     return 1;
   }
   
+
+  int getCost(){
+    return COST;
+  }
   
   void drawUnit(){
     stroke(0);

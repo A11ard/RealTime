@@ -19,7 +19,9 @@ class Swordsmen extends Unit{
     attackRange = 15;
   }
 
-
+  int getCost(){
+    return COST;
+  }
 
   int identifier(){
     return 0;
