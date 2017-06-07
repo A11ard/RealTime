@@ -49,12 +49,7 @@ void setup() {
 }
 
 void draw() {
-  if (computerTeam.isEmpty() || computerTeam.get(0).identifier() != 10){
-    win(true);
-  }
-  if (playerTeam.isEmpty() || playerTeam.get(0).identifier() != 10){
-    win(false); 
-  }
+
   background(255);
   //fill(255);
   menu.loadMenu();
@@ -173,6 +168,13 @@ void draw() {
     unit.attack(target);
     unit.death(computerTeam, unit, computerGraveyard);
   }
+  
+  if (computerTeam.isEmpty() || computerTeam.get(0).identifier() != 10){
+    win(true);
+  }
+  if (playerTeam.isEmpty() || playerTeam.get(0).identifier() != 10){
+    win(false); 
+  }
 }
 
 void mouseReleased() {
@@ -224,7 +226,6 @@ void keyReleased() {
 }
 
 void win(boolean team){
-  noLoop();
   PImage img;
   if(team){
     img = loadImage("data/victory.png");
@@ -235,4 +236,5 @@ void win(boolean team){
     print("you lost");
   }
   image(img, 300, 100, 650, 300);
+  noLoop();
 }
