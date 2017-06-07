@@ -22,6 +22,7 @@ int lastComputerUnitTrained; //keep track of the most recently trained unit to a
 int graveyardTimer;//timer for when we can use the REVIVE button again 
 int graveyardCost;
 
+
 void setup() {
   playerTeam = new ArrayList<Unit>();
   computerTeam = new ArrayList<Unit>();
@@ -53,10 +54,12 @@ void setup() {
   //boardImg = loadImage("boardMenu.jpg");
   //pathImg = loadImage("dirtPath.jpg");
   
+  
+  
 }
 
 void draw() {
-
+  
   background(255);
   //fill(255);
   menu.loadMenu();
@@ -66,6 +69,8 @@ void draw() {
   image(playerCastleImg, 0, height/2,170,170);
   image(enemyCastleImg, width - 170, height/2, 170,170);
   //image(skyImg, 0, 0, width, height/2);
+  
+  text("Queue Time: ",0, 50);
 
   //ADD UNITS TO QUEUE ON BUTTON PRESS
   if (menu.buttonPressed() == 0 && doOnce == false && menu.getCurrency() >= Swordsmen.COST ) {
@@ -163,6 +168,7 @@ void draw() {
   //ADDING UNITS TO THE FIELD BASED OFF OF TRAINING TIME
   if(!playerQueue.isEmpty()){
     Unit removedThing = playerQueue.removeMin();
+    text(playerQueue.peekMin(), 82, 50);
     if(removedThing == null){
       playerQueue.changeTime();   
     }

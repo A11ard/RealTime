@@ -52,11 +52,15 @@ class Nexus extends Unit{
       rect(position.x,height/2, lifebar, size);
       fill(255,0,0);
       rect(position.x + lifebar,height/2,life/(lifeinit/lifebar) - lifebar,size);
+      fill(0);
+      text(life, position.x, height/2);
     }
     else{
       rect(position.x - 170, height/2,lifebar,size);
       fill(255,0,0);
       rect(position.x + lifebar - 170,height/2,life/(lifeinit/lifebar) - lifebar,size);
+      fill(0);
+      text(life, position.x - 170, height/2);
     }
     //Updating health requires this, when you get attacked, creates a new rect that decreases health bar 
   }

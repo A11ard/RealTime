@@ -8,8 +8,8 @@ class Menu {
   int rate; //Rate of how currency increases
   int start; //Used to calculate currency based off of time
   int timer; //Game timer
-  //castle health
-  //deck + utility cards
+  color sky;
+
   //units on field
   Menu() {
     currency = 0; 
@@ -26,14 +26,16 @@ class Menu {
     deckCards.add(deckList.dequeue());
     deckCards.add(deckList.dequeue());
     deckCards.add(deckList.dequeue());
+
   }
 
 
   int menuH = 80;
   void loadMenu() {
+      
+    
+     rect(0, height/2, width, 0);
 
-    //upper boundary
-    rect(0, height/2, width, 0);
 
     //lower menu
     fill(211, 211, 211);

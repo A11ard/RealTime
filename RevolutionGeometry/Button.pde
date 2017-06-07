@@ -20,7 +20,7 @@ void display(){
   fill(255);
   text(text, xpos - 20, ypos);
   fill(0);
-  text(buttoncost, xpos - 20, ypos + 40);
+  text(buttoncost, xpos - 10, ypos + 40);
 }
 
 int getRad(){
