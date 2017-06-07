@@ -31,6 +31,12 @@ class Commander extends Unit{
   void increaseSpeed(){
     speed += 0.5;
   }
+  
+  void regen(){
+    if(life < lifeinit){
+      life += 1;
+    }
+  }
    
 void attack(Unit target){
   //Movement Detection

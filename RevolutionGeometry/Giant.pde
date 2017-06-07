@@ -42,15 +42,15 @@ class Giant extends Unit{
     ellipse(position.x, position.y, 40, 40);
     
 }
-  /*
+  
   void updateHealth(){
     fill(0,255,0);
     float lifebar = 20.0;
     int size = 3;
-    rect(position.x, position.y - 5,lifebar,size);
+    rect(position.x - 9, position.y - 24,lifebar,size);
     //Updating health requires this, when you get attacked, creates a new rect that decreases health bar 
     fill(255,0,0);
-    rect(position.x + lifebar,position.y - 5,life/(lifeinit/lifebar) - lifebar,size);
+    rect(position.x + lifebar - 9,position.y - 24,life/(lifeinit/lifebar) - lifebar,size);
   }
-  */
+  
 }

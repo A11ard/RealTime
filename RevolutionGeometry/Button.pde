@@ -3,13 +3,15 @@ class Button{
   int ypos;
   int button_r = 48;
   String text;
+  int buttoncost;
   int index = 0;
 
-  Button(int _xpos, int _ypos, String _text, int _index){
+  Button(int _xpos, int _ypos, String _text, int _index, int bCost){
     xpos = _xpos;
     ypos = _ypos;
     text = _text;
     index = _index;
+    buttoncost = bCost;
   }
 
 void display(){
@@ -17,6 +19,8 @@ void display(){
   ellipse(xpos,ypos,button_r,button_r);
   fill(255);
   text(text, xpos - 20, ypos);
+  fill(0);
+  text(buttoncost, xpos - 20, ypos + 40);
 }
 
 int getRad(){

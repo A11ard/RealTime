@@ -14,15 +14,7 @@ class Menu {
   Menu() {
     currency = 0; 
     rate = 5; //increased coinage 
-
-    //Buttons
-    buttons[0] = new Button(width/2 + 70, height - 40, "Swords", 0); 
-    buttons[1] = new Button(width/2 + 120, height - 40, "Wizard", 1);
-    buttons[2] = new Button(width/2 + 170, height - 40, "Miner", 2);
-    buttons[3] = new Button(width/2 + 220, height - 40, "Archer", 3);
-    buttons[4] = new Button(width/2 + 270, height - 40, "Giant", 4);
-    buttons[5] = new Button(width/2 + 320, height - 40, "REVIVE", 5);
-
+    
     //Cards
     deckList.enqueue(new Deck(10, "Heal", 0));
     //deckList.enqueue(new Deck(20, "Revive", 1));
@@ -48,6 +40,19 @@ class Menu {
     rect(0, height - menuH, width, menuH);
     //image(boardImg,0, height - 80, width, 80);
 
+    //Buttons
+    buttons[0] = new Button(width/2 + 70, height - 50, "Swords", 0, Swordsmen.COST); 
+    buttons[1] = new Button(width/2 + 170, height - 50, "Wizard", 1, Wizard.COST);
+    if(miner == null){
+      buttons[2] = new Button(width/2 + 270, height - 50, "Miner", 2, 10);
+    }
+    else{
+      buttons[2] = new Button(width/2 + 270, height - 50, "Miner", 2, miner.getCost());
+    }
+    buttons[3] = new Button(width/2 + 370, height - 50, "Archer", 3, Archer.COST);
+    buttons[4] = new Button(width/2 + 470, height - 50, "Giant", 4, Giant.COST);
+    buttons[5] = new Button(width/2 + 570, height - 50, "REVIVE", 5, graveyardCost);
+
     for (Button item : buttons) {
       item.display();
       //display cost for each button
@@ -60,13 +65,13 @@ class Menu {
     for (int i = 0; i < deckCards.size(); i++) {
       //set positions
       if (i == 0) {
-        deckCards.get(i).display(width/2 - 150, height - 40);
+        deckCards.get(i).display(width/2 - 150, height - 60);
       }
       if (i == 1) {
-        deckCards.get(i).display(width/2 - 220, height - 40);
+        deckCards.get(i).display(width/2 - 220, height - 60);
       }
       if (i == 2) {
-        deckCards.get(i).display(width/2 - 290, height - 40);
+        deckCards.get(i).display(width/2 - 290, height - 60);
       }
     }
 

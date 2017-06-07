@@ -20,6 +20,7 @@ ArrayPriorityQueue computerQueue; // PriorityQueue for computer units before ins
 int computerCurrency; //Computer currency
 int lastComputerUnitTrained; //keep track of the most recently trained unit to avoid giant spamming
 int graveyardTimer;//timer for when we can use the REVIVE button again 
+int graveyardCost;
 
 void setup() {
   playerTeam = new ArrayList<Unit>();
@@ -60,6 +61,7 @@ void draw() {
   //fill(255);
   menu.loadMenu();
   menu.cardPressed();
+  commander.regen();
   //System.out.print(mouseX + ", " + mouseY); 
   image(playerCastleImg, 0, height/2,170,170);
   image(enemyCastleImg, width - 170, height/2, 170,170);
@@ -101,7 +103,7 @@ void draw() {
   
   if (menu.buttonPressed() == 5 && doOnce == false && !playerGraveyard.isEmpty() && graveyardTimer > 100){
     graveyardTimer = 0; 
-    int graveyardCost = playerGraveyard.peek().getCost() * 3 / 4;
+    graveyardCost = playerGraveyard.peek().getCost() * 3 / 4;
     if( menu.getCurrency() >= graveyardCost){    
       int unitID = playerGraveyard.dequeue().identifier();
       Unit unit = null;
@@ -231,7 +233,7 @@ void keyPressed() {
   if (key == 'd' || keyCode == RIGHT) {
     isRight = true;
   }
-  if(key == 'j'){
+  if(key == ' '){
     isAttack = true;
   }
   
@@ -250,7 +252,7 @@ void keyReleased() {
   if (key == 'd' || keyCode == RIGHT) {
     isRight = false;
   }
-  if(key == 'j'){
+  if(key == ' '){
     isAttack = false;
     attackCharge = 3;
   }

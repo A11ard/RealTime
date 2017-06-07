@@ -40,17 +40,17 @@ class Wizard extends Unit{
     //rect(position.x+5,position.y,10,10);
     triangle(position.x+5, position.y, position.x+13, position.y-20, position.x+21, position.y); 
   }
-  /*
+  
   void updateHealth(){
     fill(0,255,0);
     float lifebar = 20.0;
     int size = 3;
-    rect(position.x, position.y - 5,lifebar,size);
+    rect(position.x + 3, position.y + 2,lifebar,size);
     //Updating health requires this, when you get attacked, creates a new rect that decreases health bar 
     fill(255,0,0);
-    rect(position.x + lifebar,position.y - 5,life/(lifeinit/lifebar) - lifebar,size);
+    rect(position.x + lifebar + 3,position.y + 2,life/(lifeinit/lifebar) - lifebar,size);
   }
-  */
+  
   
   
   void attack(Unit target){

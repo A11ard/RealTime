@@ -35,4 +35,15 @@ class Archer extends Unit{
     }
     ellipse(position.x, position.y,13,13);
   }
+  
+  void updateHealth(){
+    fill(0,255,0);
+    float lifebar = 20.0;
+    int size = 3;
+    rect(position.x - 10, position.y - 10,lifebar,size);
+    //Updating health requires this, when you get attacked, creates a new rect that decreases health bar 
+    fill(255,0,0);
+    rect(position.x + lifebar - 10,position.y - 10,life/(lifeinit/lifebar) - lifebar,size);
+  }
+  
 }

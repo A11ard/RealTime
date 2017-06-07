@@ -17,7 +17,9 @@ class Deck<T> {
       fill(255,0,0);
       rect(posx, posy, 20, 20);
       fill(0);
-      text(cardName, posx + 20, posy);
+      text(cardName, posx, posy - 5);
+      fill(0);
+      text(cardCost, posx, posy + 35);
   }
 
 
