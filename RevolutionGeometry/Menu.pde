@@ -106,29 +106,31 @@ class Menu {
     return -1;
   }
 
-  boolean cardbuttonPressed() {
+  Deck cardbuttonPressed() {
     for (Deck item : deckCards) {
-      if ((dist(mouseX, mouseY, item.x_pos(), item.y_pos()) < 15) && mousePressed) {
-        return true;
+      if ((dist(mouseX, mouseY, item.x_pos(), item.y_pos()) < 20) && mousePressed) {
+        return item;
       }
     }
-    return false;
+    return null;
   }
   void cardPressed() {
-    for (int i = 0; i < deckCards.size(); i++) {
-      if ((menu.cardbuttonPressed() && doOnce == false) && menu.getCurrency() >= deckCards.get(i).getCardCost()) {
+        if (cardbuttonPressed() != null && doOnce == false && getCurrency() >= cardbuttonPressed().getCardCost()) {
+          Deck temp = cardbuttonPressed();
+        System.out.println(cardbuttonPressed());
         //activate effect
-        deckCards.get(i).use();
+        cardbuttonPressed().use();
         //remove card and enqueue
-        deckList.enqueue(deckCards.remove(i));
+        deckCards.remove((cardbuttonPressed()));
+        deckList.enqueue(temp);
         //dequeue and reset back into the field
         deckCards.add(deckList.dequeue());
         //change currency
-        menu.changeCurrency(deckCards.get(i).getCardCost());
+        menu.changeCurrency(temp.getCardCost());
         doOnce = true;
       }
     }
-  }
+  
 
   int getCurrency() {
     return currency;

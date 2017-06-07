@@ -156,7 +156,7 @@ void draw() {
     unit.drawUnit();
     unit.updateHealth();
     unit.attack(target);    
-     unit.death(playerTeam, unit, playerGraveyard);
+    unit.death(playerTeam, unit, playerGraveyard);
     //System.out.println(unit.getTrainingTime());
   }
   //MAIN COMPUTERTEAM ACTIONS
