@@ -48,23 +48,27 @@ class Wizard extends Unit{
   
   void attack(Unit target){
     if(target != null){
-      float distance = position.dist(target.position); //dist from unit to target;     
+      float distance = this.position.dist(target.position); //dist from unit to target;     
       if (attackRange > distance){ //if within range      
         ArrayPriorityQueue possibleTargets = new ArrayPriorityQueue(); //make a priority queue of enemy troops
+        ArrayList<Unit> opposingTeam = new ArrayList<Unit> (); 
         if(team){
-          possibleTargets.copyArr(computerTeam);
+          opposingTeam = computerTeam;
         }
         else {
-          possibleTargets.copyArr(playerTeam);
+          opposingTeam = playerTeam;
         }
-        //System.out.println(possibleTargets); 
+        //copy only units within the range of the wizard's lightning range (set to 160) into possibleTargets 
+        for(Unit unit : opposingTeam){
+          if(160 > this.position.dist(unit.position)){//for all opposing units IN 160 radius, add it to the list of possible targets
+            possibleTargets.add(unit); 
+          }
+        }
+        
+        //this goes through ArrayPriorityQueue possibleTargets to get the possible targets
         for(int x = 0; x < 4; x++){//take the first 4 with lowest health and strike these
-         // if(x > possibleTargets.size()){         
-          //  possibleTargets.remove(target).life -= 5;
-          //}
-          
           try{            
-            possibleTargets.removeMinH(target).changeLife(1);                            
+            possibleTargets.removeMinH().changeLife(1);                            
           }
           catch(NullPointerException e){
             break; 
