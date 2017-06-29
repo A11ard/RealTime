@@ -1,5 +1,4 @@
 # RealTime
-Allard Peng, Jeffrey Weng, Leo Liu
 
 ## Revolution Geometry
 
@@ -18,16 +17,4 @@ A RTS lane defense game, with two opposing sides looking to destroy the opposing
 
 The entire game will be built in Processing.
 
-### Launch Instructions
-(Assuming you have processing)
-1. Enter your terminal/command prompt and go into the location that you want to have this game
-2. Enter this command to copy our repo
-```
-git clone git@github.com:TakingTheL/RealTime.git
-```
-3. Go into the folder called RevolutionGeometry
-4. Run the program
-```
-processing RevolutionGeometry.pde
-```
-5. Press the play button!(Upper Left Corner Triangle)
+
